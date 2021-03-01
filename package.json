@@ -13,6 +13,12 @@
   "devDependencies": {
     "request": "latest",
     "@wdio/cli": "latest",
+    "@wdio/local-runner": "latest",
+    "wdio-chromedriver-service": "latest",
+    "chromedriver": "^88.0.0",
+    "@wdio/spec-reporter": "latest",
+    "@wdio/junit-reporter": "latest",
+    "@wdio/cucumber-framework": "latest",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "cucumber": "4.1.0",
