@@ -6,7 +6,7 @@ let responseSignUp;
 let id;
 
 
-When(/^Try to do my api test$/, async () => {
+When(/^Try to login on TM site$/, async () => {
     let email ='dantes.8ua8@gmail.com';
     let password='lolyP0P11';
     id = await apiHelper.login(email, password);
