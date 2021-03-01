@@ -4,4 +4,4 @@ Feature: My API test
 
     Scenario:First test example
 
-        When Try to do my api test
+        When Try to registrate on TM site

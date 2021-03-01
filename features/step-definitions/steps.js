@@ -12,18 +12,18 @@ Given(/^I am on the login page$/, () => {
 });
 
 
-When(/^Try to do my api test$/,async() => {
-    axios.post('https://thinkmobiles.com/api/auth/sign-in/', {
-        email: 'dantes.8ua8@gmail.com',
-        password: 'lolyP0P11',
-        rememberMe: false
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+// When(/^Try to do my api test$/,async() => {
+//     axios.post('https://thinkmobiles.com/api/auth/sign-in/', {
+//         email: 'dantes.8ua8@gmail.com',
+//         password: 'lolyP0P11',
+//         rememberMe: false
+//       })
+//       .then(function (response) {
+//         console.log(response);
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
 
     // axios({
     //     method: 'post',
@@ -92,7 +92,7 @@ When(/^Try to do my api test$/,async() => {
     //     })
 
 
-});
+// });
 
 
 When(/^I click on (.+)$/, (link) => {
