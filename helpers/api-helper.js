@@ -22,6 +22,28 @@ module.exports = thisModule = {
                 resolve(response);
             });
         });
+    },
+
+    login: async function(email, password){
+    const data = {
+             email: email,
+             password: password,
+             rememberMe: false
+         };
+         const url = 'https://thinkmobiles.com/api/auth/sign-in/'
+
+         let headers = new Map();
+         headers.set("Content-Type", "application/json");
+         headers.set("User-Agent", "Thinkmobiles-qa");
+         headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
+
+         response = await apiHelper.sendRequest("POST", url, JSON.stringify(data), headers);
+         console.log(response.request.body);
+         console.log(response.request.headers);
+         console.log(response.body);
+         console.log(response.statusCode);
+         console.log(response.body.id);
+         return response.body.id;
     }
 };
 

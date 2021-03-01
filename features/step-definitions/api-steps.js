@@ -3,19 +3,14 @@ const {Given, When, Then} = require('@cucumber/cucumber');
 const apiHelper = require('../../helpers/api-helper');
 let responseCheck;
 let responseSignUp;
+let id;
+
 
 When(/^Try to do my api test$/, async () => {
-    axios.post('https://thinkmobiles.com/api/auth/sign-in/', {
-        email: 'dantes.8ua8@gmail.com',
-        password: 'lolyP0P11',
-        rememberMe: false
-    })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    let email ='dantes.8ua8@gmail.com';
+    let password='lolyP0P11';
+    id = await apiHelper.login(email, password);
+    console.log(id);
 });
 
 When(/^Try to registrate on TM site$/, async () => {
