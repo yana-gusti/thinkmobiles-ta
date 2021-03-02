@@ -2,6 +2,6 @@ Feature: My API test
 
     Feature Description
 
-    Scenario:First test example
+    Scenario:Login to TM site
 
-        When Try to do my api test
+        When Try to login on TM site
