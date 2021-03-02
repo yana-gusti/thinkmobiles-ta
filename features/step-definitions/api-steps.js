@@ -4,6 +4,7 @@ const apiHelper = require('../../helpers/api-helper');
 let responseCheck;
 let responseSignUp;
 
+
 When(/^Try to do my api test$/, async () => {
     axios.post('https://thinkmobiles.com/api/auth/sign-in/', {
         email: 'dantes.8ua8@gmail.com',
@@ -49,6 +50,6 @@ When(/^Try to registrate on TM site$/, async () => {
 
 
     if (responseCheck === "OK") {
-        responseSignUp = await apiHelper.sendRequest("POST", urlCheck, JSON.stringify(dataCheck), headers);
+        responseSignUp = await apiHelper.sendRequest("POST", urlSignUp, JSON.stringify(dataCheck), headers);
     }
 });
