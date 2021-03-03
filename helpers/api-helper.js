@@ -38,15 +38,15 @@ module.exports = thisModule = {
         headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
 
         let response = await thisModule.sendRequest("POST", url, JSON.stringify(data), headers);
-//        let body = JSON.parse(response.body);
-         console.log(response.request.body);
-         console.log(response.request.headers);
-         console.log(response.body);
-         console.log(response.statusCode);
-         console.log(response.body);
-//        let user = body['user'];
-//        let id = user.id;
-//        return id;
+        let body = JSON.parse(response.body);
+//         console.log(response.request.body);
+//         console.log(response.request.headers);
+//         console.log(response.body);
+//         console.log(response.statusCode);
+//         console.log(response.body);
+        let user = body['user'];
+        let id = user.id;
+        return id;
     }
 };
 
