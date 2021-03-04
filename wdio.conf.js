@@ -10,8 +10,7 @@ exports.config = {
 
     specs: [
         // './features/**/*.feature'
-        //'./features/Login/loginAPI.feature'
-        './features/Registration/registerViaAPI.feature'
+        './features/Login/loginAPI.feature'
 
     ],
     // Patterns to exclude.

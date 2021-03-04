@@ -39,11 +39,11 @@ module.exports = thisModule = {
 
         let response = await thisModule.sendRequest("POST", url, JSON.stringify(data), headers);
         let body = JSON.parse(response.body);
-        // console.log(response.request.body);
-        // console.log(response.request.headers);
-        // console.log(response.body);
-        // console.log(response.statusCode);
-        // console.log(response.body);
+//         console.log(response.request.body);
+//         console.log(response.request.headers);
+//         console.log(response.body);
+//         console.log(response.statusCode);
+//         console.log(response.body);
         let user = body['user'];
         let id = user.id;
         return id;
