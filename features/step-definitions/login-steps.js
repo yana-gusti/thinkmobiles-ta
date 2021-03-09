@@ -1,59 +1,60 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { disable } = require('mockery');
-const request = require('request');
 const LoginPage = require('../pageobjects/login.page');
+// const request = require('request');
 
 
-Given(/^I am on the login page$/, () => {
-    LoginPage.open()
+
+Given(/^I am on the login page$/,async () => {
+    await LoginPage.open()
 });
 
 
 
-When(/^I click on (.+)$/, (link) => {
+When(/^I click on (.+)$/, async (link) => {
     const MYlink = $(`[aria-label=${link}]`)
-    // const classNameAndText = $('[name="username"]')
-    MYlink.click()
+   await MYlink.click()
 });
 
-When(/^As a user, I click on (.+)$/, (link) => {
+When(/^As a user, I click on (.+)$/,async (link) => {
     const MYlink = $(`=${link}`)
-    MYlink.click()
+   await MYlink.click()
 });
 
-When(/^I login with (.+) and (.+)$/, (email, password) => {
-    LoginPage.login(email, password)
+When(/^I login with (.+) and (.+)$/, async (email, password) => {
+   await LoginPage.login(email, password)
 });
 
-When(/^I enter not valid (.*) or (.*)$/, (email, password) => {
+When(/^I enter not valid (.*) or (.*)$/,async (email, password) => {
 
-    LoginPage.notValid_login(email, password)
+   await LoginPage.notValid_login(email, password)
 });
 
-Then(/^I should see the main page with My profile$/, () => {
-    expect(browser).toHaveTitle('My profile | ThinkMobiles')
+Then(/^I should see the main page with My profile$/,async () => {
+   await browser.pause(3000);
+   await expect(browser).toHaveTitle('My profile | ThinkMobiles')
 });
 
-Then(/^I should see the new page with (.*)$/, (title) => {
-    expect(browser).toHaveTitleContaining(`${title}`)
+Then(/^I should see the new page with (.*)$/,async (title) => {
+   await expect(browser).toHaveTitleContaining(`${title}`)
 });
 
-Then(/^I click on chekbox Stay logged in$/, () => {
+Then(/^I click on chekbox Stay logged in$/,async () => {
 
     const MYlink = $('.contact-us__checkbox-label')
-    MYlink.click()
+   await MYlink.click()
 });
 
 
-Then(/^Login button is disabled$/, () => {
+Then(/^Login button is disabled$/,async () => {
     const loginBUTTON = $('.sign_up-submit')
-    expect(loginBUTTON).not.toBeClickable()
+   await expect(loginBUTTON).not.toBeClickable()
 });
 
 
-Then(/^User see (.+) error$/, (message) => {
+Then(/^User see (.+) error$/,async (message) => {
     const erMesage = $(`.input-error*=${message}`)
-    expect(erMesage)
+   await expect(erMesage)
         // .toHaveText(message)
         .toHaveTextContaining(message)
 

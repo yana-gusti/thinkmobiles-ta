@@ -10,10 +10,16 @@ exports.config = {
 
     specs: [
         // './features/**/*.feature'
+
         //'./features/Login/loginAPI.feature'
         './features/**/registerViaApi.feature'
         //'./features/Registration/signup.feature'
         //'./features/Registration/links.feature'
+
+//'./features/Registration/registerViaAPI.feature'
+'./features/login/notValidLogin.feature'
+//'./features/login/create_delete-api.feature'
+
 
     ],
     // Patterns to exclude.
@@ -30,7 +36,14 @@ exports.config = {
 
         maxInstances: 5,
         browserName: 'chrome',
+                'goog:chromeOptions': {
+                    // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+                    'args': ['--incognito']
+
+                },
         acceptInsecureCerts: true
+
+
 
     }],
     //
@@ -53,12 +66,16 @@ exports.config = {
 
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
+
         require: [
         //    './features/step-definitions/steps.js',
             './features/step-definitions/api-steps-a.js'
         //    './features/step-definitions/regSteps.js'
 
         ],
+=======
+        require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
+
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],

@@ -15,17 +15,18 @@ class LoginPage extends Page {
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    login(email, password) {
-        this.inputUsername.setValue(email);
-        this.inputPassword.setValue(password);
-        this.btnSubmit.click();
+   async login(email, password) {
+
+     await (await this.inputUsername).setValue(email);
+     await  (await this.inputPassword).setValue(password);
+     await  (await this.btnSubmit).click();
     }
-    notValid_login(email, password) {
-        this.inputUsername.setValue(email);
+   async notValid_login(email, password) {
+           await (await this.inputUsername).setValue(email);
         if (password=='itsEmpty') {
-            this.inputPassword.setValue(' ');
+           await (await this.inputPassword).setValue(' ');
         } else {
-            this.inputPassword.setValue(password);
+           await (await this.inputPassword).setValue(password);
         }
     }
 
