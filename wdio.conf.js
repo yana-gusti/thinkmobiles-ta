@@ -11,8 +11,8 @@ exports.config = {
     specs: [
         // './features/**/*.feature'
 //'./features/Registration/registerViaAPI.feature'
-//'./features/Login/loginAPI.feature'
-'./features/Login/create_delete-api.feature'
+'./features/Login/login.feature'
+//'./features/Login/create_delete-api.feature'
 
     ],
     // Patterns to exclude.
@@ -29,7 +29,14 @@ exports.config = {
 
         maxInstances: 5,
         browserName: 'chrome',
+                'goog:chromeOptions': {
+                    // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+                    'args': ['--incognito']
+
+                },
         acceptInsecureCerts: true
+
+
 
     }],
     //
