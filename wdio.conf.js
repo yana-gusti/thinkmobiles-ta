@@ -10,17 +10,11 @@ exports.config = {
 
     specs: [
         // './features/**/*.feature'
-
-        //'./features/Login/loginAPI.feature'
-        './features/**/registerViaApi.feature'
-        //'./features/Registration/signup.feature'
-        //'./features/Registration/links.feature'
-
-//'./features/Registration/registerViaAPI.feature'
-'./features/login/notValidLogin.feature'
-//'./features/login/create_delete-api.feature'
-
-
+      // './features/write-post/post.feature',
+        //'./features/write-post/edit-post.feature',
+       //'./features/write-post/delete-post.feature',
+       './features/write-post/neg-post.feature',
+       //'./features/write-post/login-api.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -30,21 +24,18 @@ exports.config = {
     // Capabilities
     // ============
 
-    maxInstances: 10,
+    maxInstances: 1,
 
     capabilities: [{
 
-        maxInstances: 5,
+        maxInstances: 1,
         browserName: 'chrome',
-                'goog:chromeOptions': {
-                    // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
-                    'args': ['--incognito']
+        'goog:chromeOptions': {
+            // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+            'args': ['--incognito']
 
-                },
+        },
         acceptInsecureCerts: true
-
-
-
     }],
     //
     // ===================
@@ -53,7 +44,7 @@ exports.config = {
 
     logLevel: 'info',
     bail: 0,
-    waitforTimeout: 10000,
+    waitforTimeout: 80000,
     connectionRetryTimeout: 120000,
 
     connectionRetryCount: 3,
@@ -66,16 +57,8 @@ exports.config = {
 
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-
-        require: [
-        //    './features/step-definitions/steps.js',
-            './features/step-definitions/api-steps-a.js'
-        //    './features/step-definitions/regSteps.js'
-
-        ],
-=======
-        require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
-
+        require: ['./features/step-definitions/steps.js', './features/step-definitions/api-steps.js'],
+       // "cucumberautocomplete.syncfeatures": "features/*feature",
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],
