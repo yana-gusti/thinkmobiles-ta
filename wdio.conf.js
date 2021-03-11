@@ -15,6 +15,7 @@ exports.config = {
         //'./features/Registration/signup.feature',
         './features/Registration/links.feature',
         //'./features/Registration/registerViaAPI.feature',
+        //'./features/Registration/signup_negative.feature',
         //./features/login/notValidLogin.feature',
         //'./features/login/create_delete-api.feature',
     ],
@@ -32,7 +33,12 @@ exports.config = {
 
         maxInstances: 5,
         browserName: 'chrome',
-        acceptInsecureCerts: true
+                chromeOptions: {
+                //   'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+                //    'args': ['--incognito']
+
+                },
+        acceptInsecureCerts: true,
     }],
     //
     // ===================
