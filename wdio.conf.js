@@ -33,7 +33,10 @@ exports.config = {
 
         maxInstances: 5,
         browserName: 'chrome',
-        setHeadless: true,
+        chromeOptions: {
+            args: [
+                'headless'
+                ]};
         acceptInsecureCerts: true,
     }],
     //
