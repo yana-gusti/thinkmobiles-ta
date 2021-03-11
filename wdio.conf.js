@@ -36,7 +36,7 @@ exports.config = {
         chromeOptions: {
             args: [
                 'headless'
-                ]};
+                ]}
         acceptInsecureCerts: true,
     }],
     //
