@@ -35,7 +35,7 @@ exports.config = {
         browserName: 'chrome',
                 chromeOptions: {
                     'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
-                    'args': ['--incognito']
+                //    'args': ['--incognito']
 
                 },
         acceptInsecureCerts: true,
