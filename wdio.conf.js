@@ -33,11 +33,6 @@ exports.config = {
 
         maxInstances: 5,
         browserName: 'chrome',
-                chromeOptions: {
-                //   'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
-                //    'args': ['--incognito']
-
-                },
         acceptInsecureCerts: true,
     }],
     //
