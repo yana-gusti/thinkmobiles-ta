@@ -12,9 +12,9 @@ exports.config = {
         // './features/**/*.feature',
         //'./features/Login/loginAPI.feature',
         //'./features/**/registerViaApi.feature',
-        './features/Registration/signup.feature',
+        //'./features/Registration/signup.feature',
         //'./features/Registration/links.feature',
-        //'./features/Registration/registerViaAPI.feature',
+        './features/Registration/registerViaAPI.feature',
         //./features/login/notValidLogin.feature',
         //'./features/login/create_delete-api.feature',
     ],
@@ -32,7 +32,8 @@ exports.config = {
 
         maxInstances: 5,
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        setHeadless(true)
     }],
     //
     // ===================
