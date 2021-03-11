@@ -17,7 +17,7 @@ exports.config = {
         //'./features/Registration/links.feature'
 
 //'./features/Registration/registerViaAPI.feature'
-'./features/login/notValidLogin.feature'
+//'./features/login/notValidLogin.feature'
 //'./features/login/create_delete-api.feature'
 
 
