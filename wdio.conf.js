@@ -19,10 +19,10 @@ exports.config = {
 //============================================================================================
 
 //       './features/login/loginAPI.feature'
-       './features/login/LinksChecker.feature'
+//       './features/login/LinksChecker.feature'
 //       './features/login/login.feature'
 //       './features/login/notValidLogin.feature'
-//       './features/login/create_delete-api.feature'
+       './features/login/create_delete-api.feature'
 
 
     ],
