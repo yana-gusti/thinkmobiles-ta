@@ -60,7 +60,7 @@ exports.config = {
         // <string[]> (file/dir) require files before executing features
 
         require: [
-            './features/step-definitions/api-steps-a.js',
+          //  './features/step-definitions/api-steps-a.js',
             './features/step-definitions/regSteps.js',
         ],
         backtrace: false,
