@@ -8,11 +8,11 @@ Feature: The TM Website
   
     Examples:
       | username       | password        | 
-      | test6@gmail.com | 12345!          |
-      | test6@gmail.com | abcdef          |
-      | test6@gmail.com | abc123          |
-      | test6@gmail.com | !@3$%^          |
-      | test6@gmail.com | aaa#$%          |
-      | test6@gmail.com | ab12$%          |
-      | test6@gmail.com | 123456789012345 |
-      | test6@gmail.com | abcdefghijklmno |
+      | test4@gmail.com | 12345!          |
+      | test4@gmail.com | abcdef          |
+      | test4@gmail.com | abc123          |
+      | test4@gmail.com | !@3$%^          |
+      | test4@gmail.com | aaa#$%          |
+      | test4@gmail.com | ab12$%          |
+      | test4@gmail.com | 123456789012345 |
+      | test4@gmail.com | abcdefghijklmno |
