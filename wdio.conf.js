@@ -12,14 +12,13 @@ exports.config = {
         // './features/**/*.feature'
 
         //'./features/Login/loginAPI.feature'
-//        './features/**/registerViaApi.feature'
+        './features/**/registerViaApi.feature'
         //'./features/Registration/signup.feature'
         //'./features/Registration/links.feature'
 
 //'./features/Registration/registerViaAPI.feature'
-//'./features/**/notValidLogin.feature'
-//'./features/login/notValidLogin.feature'
-'./features/login/create_delete-api.feature'
+'./features/login/notValidLogin.feature'
+//'./features/login/create_delete-api.feature'
 
 
     ],
@@ -74,7 +73,7 @@ exports.config = {
         //    './features/step-definitions/regSteps.js'
 
         ],
-//=======
+=======
         require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
 
         backtrace: false,
