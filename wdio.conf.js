@@ -12,7 +12,7 @@ exports.config = {
         // './features/**/*.feature'
 
         //'./features/Login/loginAPI.feature'
-        './features/**/registerViaApi.feature'
+//        './features/**/registerViaApi.feature'
         //'./features/Registration/signup.feature'
         //'./features/Registration/links.feature'
 
@@ -69,11 +69,13 @@ exports.config = {
 
         require: [
         //    './features/step-definitions/steps.js',
-            './features/step-definitions/api-steps-a.js'
+                    './features/step-definitions/login-steps.js',
+//            './features/step-definitions/api-steps-a.js'
+            './features/step-definitions/api-steps.js'
         //    './features/step-definitions/regSteps.js'
 
         ],
-=======
+//==============
         require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
 
         backtrace: false,
