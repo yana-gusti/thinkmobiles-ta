@@ -15,7 +15,7 @@ exports.config = {
         './features/Registration/signup.feature',
         './features/Registration/links.feature',
         './features/Registration/registerViaAPI.feature',
-        './features/Registration/signup_negative.feature',
+        //'./features/Registration/signup_negative.feature',
         //./features/login/notValidLogin.feature',
         //'./features/login/create_delete-api.feature',
     ],
