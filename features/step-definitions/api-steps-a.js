@@ -1,4 +1,4 @@
-const axios = require('axios').default;
+
 const {Given, When, Then} = require('@cucumber/cucumber');
 const apiHelper = require('../../helpers/api-helper');
 let responseCheck;
