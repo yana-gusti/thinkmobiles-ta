@@ -73,7 +73,6 @@ exports.config = {
         //    './features/step-definitions/regSteps.js'
 
         ],
-=======
         require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
 
         backtrace: false,
