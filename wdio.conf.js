@@ -29,10 +29,13 @@ exports.config = {
 
     maxInstances: 10,
 
-    capabilities: [{
-
+    capabilities: [
+        {
         maxInstances: 5,
         browserName: 'chrome',
+            'goog:chromeOptions': {
+                'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+            },
         acceptInsecureCerts: true,
     }],
     //
