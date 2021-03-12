@@ -12,9 +12,9 @@ exports.config = {
         // './features/**/*.feature'
 
         //'./features/Login/loginAPI.feature'
-        //'./features/**/registerViaApi.feature'
+        './features/**/registerViaApi.feature'
         //'./features/Registration/signup.feature'
-        './features/Registration/links.feature'
+        //'./features/Registration/links.feature'
 
 //'./features/Registration/registerViaAPI.feature'
 //'./features/login/notValidLogin.feature'
