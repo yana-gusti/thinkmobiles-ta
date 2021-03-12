@@ -10,11 +10,15 @@ exports.config = {
 
     specs: [
         // './features/**/*.feature'
-      // './features/write-post/post.feature',
+        //'./features/Login/loginAPI.feature'
+        //'./features/**/registerViaApi.feature',
+        //'./features/Registration/signup.feature'
+        //'./features/Registration/links.feature'
+        //'./features/write-post/post.feature',
         //'./features/write-post/edit-post.feature',
-       //'./features/write-post/delete-post.feature',
-       './features/write-post/neg-post.feature',
-       //'./features/write-post/login-api.feature'
+        //'./features/write-post/delete-post.feature',
+        //'./features/write-post/neg-post.feature',
+        './features/write-post/post-api.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -51,14 +55,20 @@ exports.config = {
     services: ['chromedriver'],
 
     framework: 'cucumber',
-    reporters: ['spec','junit'],
+    reporters: ['spec', 'junit'],
 
 
 
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js', './features/step-definitions/api-steps.js'],
-       // "cucumberautocomplete.syncfeatures": "features/*feature",
+    require: ['./features/step-definitions/post-steps.js', './features/step-definitions/api-steps-post.js'],
+        //require: [
+            //    './features/step-definitions/steps.js',
+            //'./features/step-definitions/api-steps-a.js'
+            //    './features/step-definitions/regSteps.js'
+        //],
+        //require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
+        // "cucumberautocomplete.syncfeatures": "features/*feature",
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],
@@ -128,7 +138,7 @@ exports.config = {
      * @param {Array} args arguments that command would receive
      */
 
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

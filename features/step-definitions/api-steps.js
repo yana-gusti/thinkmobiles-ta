@@ -92,7 +92,7 @@ When(/^Try to registrate on TM site$/, async () => {
     console.log(responseSignUp.body);
     console.log(`Registration statusCode: ${responseSignUp.statusCode}`);
     console.log(responseSignUp.responseText);
-});
+
 
 let data = {
     "email": email
@@ -162,4 +162,4 @@ Then(/^Delete user from TM site$/, async () => {
         let response = await thisModule.sendRequest("DELETE", url,'', headers);
         console.log(`Delete statusCode: ${response.statusCode}`);
         console.log(`Message: ${response.body}`);
-});
+})}})});

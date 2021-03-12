@@ -11,4 +11,4 @@ Feature: The Write a post title testing
 
     Examples:
             | title       |
-            | Lorem isput |
+            | Lorem ispum |

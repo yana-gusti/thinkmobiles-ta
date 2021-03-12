@@ -47,8 +47,61 @@ module.exports = thisModule = {
         let user = body['user'];
         let id = user.id;
         return id;
-    }
+    },
+
+
+
+    async sendFormData(url, { coverImage, title, body }, qwetySId) {
+        let headers = new Map();
+        headers.set("User-Agent", "Thinkmobiles-qa");
+        headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
+        headers.set("Accept-Encoding", "gzip, deflate, br");
+        headers.set("Connection", "keep-alive");
+        headers.set("Cookie", qwetySId);
+
+        const fd = {
+            title,
+            body
+        };
+
+        return new Promise((resolve, reject) => {
+            const options = {
+                method: 'POST',
+                url,
+                formData: fd,
+                headers: mapHeaders(headers),
+                agentOptions: { rejectUnauthorized: false }
+            };
+
+            request(options, function (error, response, _body) {
+                if (error) {
+                    console.error('request error:', error);
+                    reject(error);
+                    return;
+                }
+                resolve(response);
+            });
+        });
+    },
+
+    writePost: async (title, content) => {
+        const data = {
+            title: title,
+            content: content,
+        };
+        const url = 'https://thinkmobiles.com/api/post/draft/';
+
+        let headers = new Map();
+        headers.set("Content-Type", "multipart/form-data");
+        headers.set("User-Agent", "Thinkmobiles-qa");
+        headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
+        headers.set("Connection", "keep-alive");
+        headers.set("Accept-Encoding", "gzip, deflate, br");
+
+        let response = await thisModule.sendFormData(url, { coverImage: null, title, body }, headers);
+    },
 };
+
 
 function mapHeaders(value) {
     let headers = {};
