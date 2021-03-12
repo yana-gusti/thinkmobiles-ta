@@ -9,16 +9,20 @@ exports.config = {
     // ==================
 
     specs: [
-        // './features/**/*.feature'
+//         './features/**/*.feature'
 
-        //'./features/Login/loginAPI.feature'
-//        './features/**/registerViaApi.feature'
-        //'./features/Registration/signup.feature'
-        //'./features/Registration/links.feature'
+//       './features/**/registerViaApi.feature'
+//       './features/registration/signup.feature'
+//       './features/registration/links.feature'
+//       './features/registration/registerViaAPI.feature'
 
-//'./features/Registration/registerViaAPI.feature'
-'./features/login/notValidLogin.feature'
-//'./features/login/create_delete-api.feature'
+//============================================================================================
+
+//       './features/login/loginAPI.feature'
+       './features/login/LinksChecker.feature'
+//       './features/login/login.feature'
+//       './features/login/notValidLogin.feature'
+//       './features/login/create_delete-api.feature'
 
 
     ],

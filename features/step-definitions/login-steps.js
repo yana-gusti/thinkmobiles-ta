@@ -12,12 +12,12 @@ Given(/^I am on the login page$/,async () => {
 
 
 When(/^I click on (.+)$/, async (link) => {
-    const MYlink = $(`[aria-label=${link}]`)
+    const MYlink =await ($(`[aria-label=${link}]`))
    await MYlink.click()
 });
 
 When(/^As a user, I click on (.+)$/,async (link) => {
-    const MYlink = $(`=${link}`)
+    const MYlink =await ($(`=${link}`))
    await MYlink.click()
 });
 
