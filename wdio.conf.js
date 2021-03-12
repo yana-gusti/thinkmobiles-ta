@@ -61,7 +61,7 @@ exports.config = {
 
         require: [
             './features/step-definitions/api-steps-a.js',
-          //  './features/step-definitions/regSteps.js',
+            './features/step-definitions/regSteps.js',
         ],
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
