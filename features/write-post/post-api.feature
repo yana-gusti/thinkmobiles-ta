@@ -2,9 +2,9 @@ Feature:API test
 
     Scenario:First test example
 
-        When The Registration on TM site
-        When The Confirm an email
-        When The Login on TM site
-        #When The Write a post
-        #When The Delete a post
-        Then The Delete a user by id
+        # Given Register on TM site
+        # When Confirm an email
+        And Login on TM site
+        And Write a post
+        # And Delete a post
+        # Then Delete a user by id

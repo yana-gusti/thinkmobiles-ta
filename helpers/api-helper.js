@@ -1,116 +1,85 @@
 const request = require('request');
 
+const defaultHeaders = {
+    'Content-Type': 'application/json',
+    'User-Agent': 'Thinkmobiles-qa',
+    'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8'
+};
+
 module.exports = thisModule = {
 
-    sendRequest: (method = 'POST', uri, body, headers, additionalOptions) => {
-        return new Promise((resolve, reject) => {
-            const options = {
-                method,
-                uri,
-                body,
-                headers: mapHeaders(headers),
-                agentOptions: {rejectUnauthorized: false},
-                ...additionalOptions
-            };
+    register: async (email, password, firstName, lastName) => {
+        const emailCheckUrl = 'https://thinkmobiles.com/api/auth/sign-up-check/';
+        const signUpUrl = 'https://thinkmobiles.com/api/auth/sign-up/';
 
-            request(options, function (error, response, _body) {
-                if (error) {
-                    console.error('request error:', error);
-                    reject(error);
-                    return;
-                }
-                resolve(response);
-            });
-        });
+        const signUpData = { email, password, firstName, lastName };
+        const responseCheck = await sendRequest('POST', emailCheckUrl, JSON.stringify({ email }), defaultHeaders);
+
+        if (responseCheck.statusCode === 200) {
+            return await sendRequest('POST', signUpUrl, JSON.stringify(signUpData), defaultHeaders);
+        }
+
+        return '';
     },
 
-    login: async function (email, password) {
-        const data = {
-            email: email,
-            password: password,
-            rememberMe: false
-        };
-        const url = 'https://thinkmobiles.com/api/auth/sign-in/'
-
-        let headers = new Map();
-        headers.set("Content-Type", "application/json");
-        headers.set("User-Agent", "Thinkmobiles-qa");
-        headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
-
-        let response = await thisModule.sendRequest("POST", url, JSON.stringify(data), headers);
-        let body = JSON.parse(response.body);
-//         console.log(response.request.body);
-//         console.log(response.request.headers);
-//         console.log(response.body);
-//         console.log(response.statusCode);
-//         console.log(response.body);
-        let user = body['user'];
-        let id = user.id;
-        return id;
+    confirmEmail: async email => {
+        const url = 'https://thinkmobiles.com/api/testing/user/confirm-email/';
+        return await sendRequest('POST', url, JSON.stringify({ email }), defaultHeaders);
     },
 
+    login: async (email, password) => {
+        const url = 'https://thinkmobiles.com/api/auth/sign-in/';
+        const data = { email, password, rememberMe: false };
 
-
-    async sendFormData(url, { coverImage, title, body }, qwetySId) {
-        let headers = new Map();
-        headers.set("User-Agent", "Thinkmobiles-qa");
-        headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
-        headers.set("Accept-Encoding", "gzip, deflate, br");
-        headers.set("Connection", "keep-alive");
-        headers.set("Cookie", qwetySId);
-
-        const fd = {
-            title,
-            body
-        };
-
-        return new Promise((resolve, reject) => {
-            const options = {
-                method: 'POST',
-                url,
-                formData: fd,
-                headers: mapHeaders(headers),
-                agentOptions: { rejectUnauthorized: false }
-            };
-
-            request(options, function (error, response, _body) {
-                if (error) {
-                    console.error('request error:', error);
-                    reject(error);
-                    return;
-                }
-                resolve(response);
-            });
-        });
+        return await sendRequest('POST', url, JSON.stringify(data), defaultHeaders);
     },
 
-    writePost: async (title, content) => {
-        const data = {
-            title: title,
-            content: content,
-        };
+    postDraft: async (title, body, coverImage, loginCookie) => {
         const url = 'https://thinkmobiles.com/api/post/draft/';
 
-        let headers = new Map();
-        headers.set("Content-Type", "multipart/form-data");
-        headers.set("User-Agent", "Thinkmobiles-qa");
-        headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
-        headers.set("Connection", "keep-alive");
-        headers.set("Accept-Encoding", "gzip, deflate, br");
+        const headers = {
+            'User-Agent': 'Thinkmobiles-qa',
+            'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
+            'Cookie': loginCookie
+        };
 
-        let response = await thisModule.sendFormData(url, { coverImage: null, title, body }, headers);
+        return await sendRequest('POST', url, null, headers, { formData: { title, body } });
+    },
+
+    deletePost: async (postId) => {
+        const url = 'https://thinkmobiles.com/api/testing/post' + postId + '/';
+        const headers = {
+            'User-Agent': 'Thinkmobiles-qa',
+            'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
+            'Cookie': loginCookie
+        };
+        return await sendRequest('DELETE', url, null, eaders)
+    },
+
+    deleteUser: async (userId) => {
+        const url = 'https://thinkmobiles.com/api/testing/user/' + userId + '/';
+        return await sendRequest('DELETE', url, null, defaultHeaders);
     },
 };
 
+const sendRequest = (method = 'POST', url, body, headers, additionalOptions) => {
+    return new Promise((resolve, reject) => {
+        const options = {
+            method,
+            url,
+            body,
+            headers,
+            agentOptions: { rejectUnauthorized: false },
+            ...additionalOptions
+        };
 
-function mapHeaders(value) {
-    let headers = {};
-    if (value instanceof Map) {
-        value.forEach((value, key) => {
-            headers[key] = value;
+        request(options, function (error, response, _body) {
+            if (error) {
+                console.error('request error:', error);
+                reject(error);
+                return;
+            }
+            resolve(response);
         });
-        return headers;
-    } else {
-        return value;
-    }
-}
+    });
+};

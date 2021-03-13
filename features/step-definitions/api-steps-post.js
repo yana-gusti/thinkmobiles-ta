@@ -1,118 +1,77 @@
-const axios = require('axios').default;
-const {Given, When, Then} = require('@cucumber/cucumber');
+const { Given, When, Then } = require('@cucumber/cucumber');
 const apiHelper = require('../../helpers/api-helper');
-let responseCheck;
-let responseSignUp;
-let id;
-let post;
-let qwetySId;
-//let newTitle = makeTitle();
-//let body = makeBody();
-const title = 'newTitle';
-const content = 'newContent';
-const date = new Date().getTime();
-const email = 'test' + date + '@gmail.com';
-const password = '123456';
-const firstName = 'testFirstName';
-const lastName = 'testLastName';
-const urlCheck = 'https://thinkmobiles.com/api/auth/sign-up-check/';
-const urlSignUp = 'https://thinkmobiles.com/api/auth/sign-up/';
-const urlConfirm = 'https://thinkmobiles.com/api/testing/user/confirm-email/';
-const urlSignIn = 'https://thinkmobiles.com/api/auth/sign-in/';
-const urlPost = 'https://thinkmobiles.com/api/post/draft/';
-const dataCheck = {email: email};
-const dataSignUp = {
-    email: email,
-    password: password,
-    firstName: firstName,
-    lastName: lastName
-}
-let dataSignIn = {
-    email: email,
-    password: password,
-    rememberMe: false
-}
-// function makeTitle()  {
-//     let title = "";
-//     let possible = "abcdefghijklmnopq1234597689248654892";
+const { expect } = require('chai');
 
-//     for (let i = 0; i < 40; i++)
-//     title += possible.charAt(Math.random()*possible.length);
-//     return title
-//     };
-//     console.log('TITLE ' + makeTitle());
-let dataPost = {
-    title: title,
-    body: content
-}
-
-let headers = new Map();
-headers.set("Content-Type", "application/json");
-headers.set("User-Agent", "Thinkmobiles-qa");
-headers.set("X-Testing-Token", "fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8");
-
-When('The Registration on TM site', async () => {
-
-    responseCheck = await apiHelper.sendRequest("POST", urlCheck, JSON.stringify(dataCheck), headers);
-    responseCheck = responseCheck.body;
-
-    if (responseCheck === "OK") {
-        responseSignUp = await apiHelper.sendRequest("POST", urlCheck, JSON.stringify(dataCheck), headers);
-        responseSignUp = await apiHelper.sendRequest("POST", urlSignUp, JSON.stringify(dataSignUp), headers);
-    }
-    console.log(responseSignUp.request.body);
-    console.log(responseSignUp.headers);
-    console.log(responseSignUp.body);
-    console.log(`Registration statusCode: ${responseSignUp.statusCode}`);
-    console.log(responseSignUp.responseText);
-});
-
-let data = {
-    "email": email
+const userPost ={
+    postId: null,
+    title: 'newTitle',
+    content: 'newContent',
+    loginCookie: null
 };
-When('The Confirm an email', async () => {
 
-    response = await apiHelper.sendRequest("POST", urlConfirm, JSON.stringify(data), headers);
-    console.log(response.request.body);
-    console.log(response.headers);
-    console.log(response.body);
-    console.log(`Confirm statusCode: ${response.statusCode}`);
-    console.log(response.responseText);
-});
+const date = new Date().getTime();
 
-When('The Login on TM site', async () => {
-
-    response = await thisModule.sendRequest("POST", urlSignIn, JSON.stringify(dataSignIn), headers);
-    id = await apiHelper.login(email, password);
-    //console.log(response.request.body);
-    //console.log(response.headers);
-    console.log(response.body);
-    qwetySId = (response.rawHeaders[13]).split(";")[0];
-    console.log(`Login statusCode: ${response.statusCode}`);
-    console.log(response.responseText);
-});
-
-
-When('The Write a post', async () => {
-    response = await thisModule.sendFormData(urlPost, dataPost, qwetySId);
-    console.log("*********************************************");
-    console.log('post response: ', response.statusCode);
-    console.log('TITLE ' + title);
-    console.log('BODY ' + content);
-    console.log('BODY'+ response.body)
-   
-});
-When('Delete a post', async () => {
-
+const testUser = {
+    id: null,
+    email: 'panoramamiruz@gmail.com', // 'test' + date + '@gmail.com',
+    password: 'PanoramaMir007', // '123456',
+    firstName: 'Poni', // 'testFirstName',
+    lastName: 'Rama', // 'testLastName'
+    loginCookie: null
 }
-)
 
-Then('The Delete a user by id', async () => {
+const headers = {
+    'Content-Type': 'application/json',
+    'User-Agent': 'Thinkmobiles-qa',
+    'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8'
+};
 
-    let urlDelete = 'https://thinkmobiles.com/api/testing/user/'+id+'/';
-    response = await thisModule.sendRequest("DELETE", urlDelete,'', headers);
-    console.log(`User ID: ${id}`);
-    console.log(`Delete statusCode: ${response.statusCode}`);
-    console.log(response.body);
-    console.log(urlDelete)
+Given('Register on TM site', async () => {
+    const response = await apiHelper.register(testUser.email, testUser.password, testUser.firstName, testUser.lastName);
+    expect(response.statusCode).to.equal(201);
+
+    const body = JSON.parse(response.body);
+    expect(body.payload).to.equal('An email with an activation link has been sent to your inbox.');
+});
+
+When('Confirm an email', async () => {
+    const response = await apiHelper.confirmEmail(testUser.email);
+
+    // TODO: Check response
+    expect(response.statusCode).to.equal(200);
+});
+
+When('Login on TM site', async () => {
+    const response = await apiHelper.login(testUser.email, testUser.password);
+
+    expect(response.statusCode).to.equal(200);
+
+    const loggedInUser = JSON.parse(response.body).user;
+    expect(loggedInUser.email).to.equal(testUser.email);
+    expect(loggedInUser.firstName).to.equal(testUser.firstName);
+    expect(loggedInUser.lastName).to.equal(testUser.lastName);
+
+    testUser.loginCookie = response.headers['set-cookie'][0].split(";")[0];
+    testUser.id = loggedInUser.id;
+    console.log('ID: ',testUser.id);
+});
+
+
+When('Write a post', async () => {
+    const response = await apiHelper.postDraft(userPost.title, userPost.content, null, testUser.loginCookie);
+    expect(response.statusCode).to.equal(201);
+    console.log('TITLE: ',userPost.title);
+    console.log('CONTENT: ',userPost.content);
+    console.log('ID: ', postId);
+    const body = JSON.parse(response.body);
+    expect(body.url).to.equal('/profile/?view=post&type=draft');
+});
+
+When('Delete a post', async () => {
+    const response = await apiHelper.deletePost()
+});
+
+Then('Delete a user by id', async () => {
+    const response = await apiHelper.deleteUser(testUser.id);
+    expect(response.statusCode).to.equal(200);
 });
