@@ -27,7 +27,7 @@ Then(
 When(
     /^I click the element "([^"]*)?"$/, (selector) =>{
     const homePage = $(selector);
-    browser.pause(3000);
+    homePage.waitForDisplayed();
     homePage.click();
     
 });
