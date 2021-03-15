@@ -11,11 +11,11 @@ exports.config = {
     specs: [
         // './features/**/*.feature',
         //'./features/Login/loginAPI.feature',
-        //'./features/**/registerViaApi.feature',
-        //'./features/Registration/signup.feature',
-        './features/Registration/links.feature',
+        './features/**/registerViaApi.feature',
+        './features/registration/signup.feature',
+        './features/registration/links.feature',
         //'./features/Registration/registerViaAPI.feature',
-        //'./features/Registration/signup_negative.feature',
+        './features/registration/signup_negative.feature',
         //./features/login/notValidLogin.feature',
         //'./features/login/create_delete-api.feature',
     ],
@@ -60,7 +60,7 @@ exports.config = {
         // <string[]> (file/dir) require files before executing features
 
         require: [
-           // './features/step-definitions/api-steps-a.js',
+            './features/step-definitions/api-steps-a.js',
             './features/step-definitions/regSteps.js',
         ],
         backtrace: false,
