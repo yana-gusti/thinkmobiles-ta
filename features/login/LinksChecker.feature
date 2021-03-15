@@ -8,9 +8,9 @@ Feature: The ThinkMobiles login page
 
       Examples:
         | link                          | title                         |
-     #   | "Login with Google account"   | Вход – Google Аккаунты     |
-     #   | "Login with Facebook account" | Войдите на Facebook           |
-        | "Login with Linkedin account" | Вход в LinkedIn               |
+        | "Login with Google account"   | Вхід – облікові записи Google |
+        | "Login with Facebook account" | Увійти у Facebook             |
+        | "Login with Linkedin account" | LinkedIn Login, Sign in       |
         | "Login with Github account"   | Sign in to GitHub · GitHub    |
 
   Scenario:2: As a user, I chek other links

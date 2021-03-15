@@ -18,11 +18,11 @@ exports.config = {
 
 //============================================================================================
 
-       './features/login/LinksChecker.feature'
+//       './features/login/LinksChecker.feature'
 //       './features/login/login.feature'
 //       './features/login/notValidLogin.feature'
 //       './features/login/create_login_delete-api.feature'
-//         './features/login/*.feature'
+         './features/login/*.feature'
 
 
     ],
@@ -41,7 +41,7 @@ exports.config = {
         maxInstances: 5,
         browserName: 'chrome',
                 'goog:chromeOptions': {
-                                    'args': ['--incognito','--headless']
+                                    'args': ['--incognito']
 
                     // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
 
