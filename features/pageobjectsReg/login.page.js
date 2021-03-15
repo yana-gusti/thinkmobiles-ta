@@ -21,7 +21,7 @@ class LoginPage extends Page {
         this.inputPassword.setValue(password);
         this.inputPassword2.setValue(password);
         this.btnSubmit.click(); 
-    }
+    };
 
     /**
      * overwrite specifc options to adapt it to page object
