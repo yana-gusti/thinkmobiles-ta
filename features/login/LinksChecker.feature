@@ -8,8 +8,8 @@ Feature: The ThinkMobiles login page
 
       Examples:
         | link                          | title                         |
-        | "Login with Google account"   | Вход – Google Аккаунты     |
-        | "Login with Facebook account" | Войдите на Facebook           |
+     #   | "Login with Google account"   | Вход – Google Аккаунты     |
+     #   | "Login with Facebook account" | Войдите на Facebook           |
         | "Login with Linkedin account" | Вход в LinkedIn               |
         | "Login with Github account"   | Sign in to GitHub · GitHub    |
 
