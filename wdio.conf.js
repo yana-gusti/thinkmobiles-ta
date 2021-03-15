@@ -11,9 +11,9 @@ exports.config = {
     specs: [
         // './features/**/*.feature',
         //'./features/Login/loginAPI.feature',
-        './features/**/registerViaApi.feature',
+        //'./features/**/registerViaApi.feature',
         './features/registration/signup.feature',
-        './features/registration/links.feature',
+        //'./features/registration/links.feature',
         //'./features/Registration/registerViaAPI.feature',
         './features/registration/signup_negative.feature',
         //./features/login/notValidLogin.feature',
