@@ -3,9 +3,8 @@ const apiHelper = require('../../helpers/api-helper');
 const { expect } = require('chai');
 
 const userPost ={
-    postId: null,
-    title: 'newTitle',
-    content: 'newContent',
+    title: 'Step',
+    content: 'Steps to uppdate',
     loginCookie: null
 };
 
@@ -13,8 +12,8 @@ const date = new Date().getTime();
 
 const testUser = {
     id: null,
-    email: 'panoramamiruz@gmail.com', // 'test' + date + '@gmail.com',
-    password: 'PanoramaMir007', // '123456',
+    email: 'test' + date + '@gmail.com', //'panoramamiruz@gmail.com',
+    password: '123456', //PanoramaMir007'
     firstName: 'Poni', // 'testFirstName',
     lastName: 'Rama', // 'testLastName'
     loginCookie: null
@@ -29,8 +28,9 @@ const headers = {
 Given('Register on TM site', async () => {
     const response = await apiHelper.register(testUser.email, testUser.password, testUser.firstName, testUser.lastName);
     expect(response.statusCode).to.equal(201);
-
+    console.log(response.statusCode);
     const body = JSON.parse(response.body);
+    console.log('Body: ',body);
     expect(body.payload).to.equal('An email with an activation link has been sent to your inbox.');
 });
 
@@ -43,17 +43,14 @@ When('Confirm an email', async () => {
 
 When('Login on TM site', async () => {
     const response = await apiHelper.login(testUser.email, testUser.password);
-
     expect(response.statusCode).to.equal(200);
-
     const loggedInUser = JSON.parse(response.body).user;
     expect(loggedInUser.email).to.equal(testUser.email);
     expect(loggedInUser.firstName).to.equal(testUser.firstName);
     expect(loggedInUser.lastName).to.equal(testUser.lastName);
-
+    console.log(response.body);
     testUser.loginCookie = response.headers['set-cookie'][0].split(";")[0];
     testUser.id = loggedInUser.id;
-    console.log('ID: ',testUser.id);
 });
 
 
@@ -62,13 +59,17 @@ When('Write a post', async () => {
     expect(response.statusCode).to.equal(201);
     console.log('TITLE: ',userPost.title);
     console.log('CONTENT: ',userPost.content);
-    console.log('ID: ', postId);
     const body = JSON.parse(response.body);
+    console.log('statusCode: ',response.statusCode);
+    console.log('BODY: ',body);
     expect(body.url).to.equal('/profile/?view=post&type=draft');
 });
 
 When('Delete a post', async () => {
-    const response = await apiHelper.deletePost()
+    const userPost = await apiHelper.getLastUserPost(testUser.id, testUser.loginCookie);
+    console.log(userPost);
+    const responseDelete = await apiHelper.deletePost(userPost.id);
+    expect(responseDelete.statusCode).to.equal(200);
 });
 
 Then('Delete a user by id', async () => {
