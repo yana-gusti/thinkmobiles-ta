@@ -58,7 +58,7 @@ exports.config = {
 
     logLevel: 'info',
     bail: 0,
-    waitforTimeout: 10000,
+    waitforTimeout: 30000,
     connectionRetryTimeout: 120000,
 
     connectionRetryCount: 3,
@@ -72,17 +72,19 @@ exports.config = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
 
-        require: [
-        //    './features/step-definitions/steps.js',
-                    './features/step-definitions/login-steps.js',
-//            './features/step-definitions/api-steps-a.js'
-            './features/step-definitions/api-steps.js'
-        //    './features/step-definitions/regSteps.js'
+//==================================================================================================
+   //        require: [
+   //    './features/step-definitions/steps.js',
+   //    './features/step-definitions/api-steps-a.js'
+   //    './features/step-definitions/api-steps.js'
+   //    './features/step-definitions/regSteps.js'
 
-        ],
-//==============
+//        ],
+//==============================FOR LOGIN TESTS================================================================
+
         require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
 
+//===============================================================================================================
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],
