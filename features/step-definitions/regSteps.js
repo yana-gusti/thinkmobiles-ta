@@ -19,7 +19,7 @@ Then(
     /^I expect that element "([^"]*)?" contains the text "([^"]*)?"$/, (selector, stringExpectedText) =>{
      browser.pause(3000);
      const elem = $(selector);
-     elem.waitForDisplayed();
+        browser.pause(3000);
      const text = elem.getText();
      expect(text).toContain(stringExpectedText);
 });
