@@ -1,4 +1,5 @@
 const request = require('request');
+const fs = require('fs');
 
 const defaultHeaders = {
     'Content-Type': 'application/json',
@@ -34,29 +35,31 @@ module.exports = thisModule = {
         return await sendRequest('POST', url, JSON.stringify(data), defaultHeaders);
     },
 
-    postDraft: async (title, body, coverImage, loginCookie) => {
+    postDraft: async (title, body, coverImagePath, loginCookie) => {
         const url = 'https://thinkmobiles.com/api/post/draft/';
         const headers = {
             'User-Agent': 'Thinkmobiles-qa',
             'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
-            'Cookie': loginCookie
+            'Cookie': loginCookie,
+            'Content-Type': 'multipart/form-data'
         };
-        
-         return await sendRequest('POST', url, null, headers, { formData: { title, body } });
+
+        const coverImage = fs.readFileSync(coverImagePath);
+        return await sendRequest('POST', url, null, headers, { formData: { title, body, coverImage:fs.createReadStream(coverImagePath) } });
     },
+
     getLastUserPost: async (userId, loginCookie) => {
-        const url = 'https://thinkmobiles.com/api/profile/posts/?id='+ userId + '&status=draft'
+        const url = 'https://thinkmobiles.com/api/profile/posts/?id=' + userId + '&status=draft'
         const headers = {
             'User-Agent': 'Thinkmobiles-qa',
             'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
             'Cookie': loginCookie
         };
-        const response = await sendRequest('GET', url, null, headers); 
+        const response = await sendRequest('GET', url, null, headers);
         const body = JSON.parse(response.body);
-        //console.log(body);
         return body.data[0];
     },
-    
+
     deletePost: async (postId, loginCookie) => {
         const url = 'https://thinkmobiles.com/api/testing/post/' + postId + '/';
         const headers = {
