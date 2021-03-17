@@ -29,7 +29,6 @@ When(
     const homePage = $(selector);
     homePage.waitForDisplayed();
     homePage.click();
-    
 });
 
 Then(
