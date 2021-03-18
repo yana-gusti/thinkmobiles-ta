@@ -14,10 +14,10 @@ exports.config = {
         //'./features/**/registerViaApi.feature',
         //'./features/Registration/signup.feature'
         //'./features/Registration/links.feature'
-        //'./features/write-post/post.feature',
-        //'./features/write-post/edit-post.feature',
-        //'./features/write-post/delete-post.feature',
-        //'./features/write-post/neg-post.feature',
+        './features/write-post/post.feature',
+        './features/write-post/edit-post.feature',
+        './features/write-post/delete-post.feature',
+        './features/write-post/neg-post.feature',
         './features/write-post/post-api.feature'
     ],
     // Patterns to exclude.
