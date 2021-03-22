@@ -22,7 +22,8 @@ exports.config = {
 //       './features/login/login.feature'
 //       './features/login/notValidLogin.feature'
 //       './features/login/create_login_delete-api.feature'
-         './features/login/*.feature'
+//       './features/login/*.feature'
+         './features/user-profile/Changing-UserCredentials.feature'
 
 
     ],
@@ -83,6 +84,7 @@ exports.config = {
 //==============================FOR LOGIN TESTS================================================================
 
         require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
+        require: ['./features/step-definitions/profile-steps.js'],
 
 //===============================================================================================================
         backtrace: false,
