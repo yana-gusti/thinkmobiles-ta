@@ -1,9 +1,8 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { disable } = require('mockery');
 const LoginPage = require('../pageobjects/login.page');
-// const request = require('request');
-
 let date = new Date().getTime();
+
 
 
 Given(/^I am on the login page$/,async () => {
@@ -11,33 +10,42 @@ Given(/^I am on the login page$/,async () => {
 });
 
 
-
-When(/^I click on (.+)$/, async (link) => {
-    const MYlink =await ($(`[aria-label=${link}]`))
-   await MYlink.click()
-});
-
-When(/^As a user, I click on (.+)$/,async (link) => {
-    const MYlink =await ($(`=${link}`))
-   await MYlink.click()
-});
-
 When(/^I login with (.+) and (.+)$/, async (email, password) => {
    await LoginPage.login(email, password)
 });
 
 //=================================================================================
+When(/^I delete current user photo$/,async () => {
+   let avatarDeleteBtn=await $('.profile-avatar-delete-button');
+     await browser.pause(3000);
+  await avatarDeleteBtn.click();
+       await browser.pause(3000);
+});
+
+//When(/^I add new user photo$/,async () => {
+//   let avatarBtn=await $('.profile-avatar-edit');
+//   let input=await $('.post_create-banner-input')
+////  await avatarBtn.click();
+//       await browser.pause(3000);
+//
+//          const filePath = 'C:/Users/пк/Desktop/QA_ThinkMobiles/JustB.png'
+//           const remoteFilePath =browser.uploadFile(filePath)
+//
+//         await  input.setValue(remoteFilePath)
+//});
+
+
 
 When(/^I change current user description to new (.*)$/,async (descr) => {
 let userDescription = descr + date
 
    let userDescriptionButton=await $('.profile-description-text');
    let DescriptionInput= await $('[name="about"]');
+  await browser.pause(3000);
    await userDescriptionButton.click()
     await DescriptionInput.clearValue()
    await DescriptionInput.setValue(userDescription)
    browser.keys("Enter");
-   await browser.pause(3000);
 });
 
 When(/^I change current user name to new (.*)$/,async (name) => {
@@ -49,25 +57,15 @@ let userName = name + date
     await nameInput.clearValue()
    await nameInput.setValue(userName)
    browser.keys("Enter");
-   await browser.pause(3000);
 });
 
-Then(/^I see message (.*)$/,async (text) => {
+Then(/^I see message : (.*)$/,async (text) => {
 let messageDiv=$('.popup_message-text');
-
-console.log(text)
-
-   await expect(messageDiv)
-        .toHaveTextContaining(text)
-         browser.pause(5000);
+   await expect(messageDiv).toHaveTextContaining(text)
 });
 //===================================================================================
 
 
-When(/^I enter not valid (.*) or (.*)$/,async (email, password) => {
-
-   await LoginPage.notValid_login(email, password)
-});
 
 Then(/^I should see the main page with My profile$/,async () => {
    await browser.pause(3000);
@@ -78,11 +76,6 @@ Then(/^I should see the new page with (.*)$/,async (title) => {
    await expect(browser).toHaveTitleContaining(`${title}`)
 });
 
-Then(/^I click on chekbox Stay logged in$/,async () => {
-
-    const MYlink = $('.contact-us__checkbox-label')
-   await MYlink.click()
-});
 
 
 Then(/^Login button is disabled$/,async () => {
