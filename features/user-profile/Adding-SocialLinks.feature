@@ -4,7 +4,7 @@ Feature: The ThinkMobiles Website
       Given I am on the login page
       When I login with email : dantes.8ua8@gmail.com and password : lolyP0P11
 
-  Scenario:1: As a user, I adding social links to my profile
+  Scenario Outline:1: As a user, I adding social links to my profile
     Then I add <link> to social <item>
 
    Examples:
@@ -20,18 +20,18 @@ Feature: The ThinkMobiles Website
     | https://github.com/D8ane8s109                         |  github    |
 
 
- # Scenario:2: As a user, I adding not valid social links to my profile
-  #  Then I add wrong <link> to social <item>
-   # Then I see error message
-
- #  Examples:
- #   |link                                                   | item       |
- #   | -----                                                 |  facebook  |
-  #  | 2342342340                                            |  twitter   |
-  #  | dfvrdffs                                              |  linkedin  |
-  #  | выиукмвапрк                                           |  behance   |
-  #  | "№;%;№%%565"                                          |  instagram |
-  #  | null                                                  |  youtube   |
-   # | admin                                                 |  pinterest |
-   # | user                                                  |  dribbble  |
-   # | LINK                                                  |  github    |
+#  Scenario Outline:2: As a user, I adding not valid social links to my profile
+#    Then I add wrong <link> to social <item>
+#    Then I see error message
+#
+#   Examples:
+#    |link                                                   | item       |
+#    | -----                                                 |  facebook  |
+#    | 2342342340                                            |  twitter   |
+#    | dfvrdffs                                              |  linkedin  |
+#    | выиукмвапрк                                           |  behance   |
+#    | "№;%;№%%565"                                          |  instagram |
+#    | null                                                  |  youtube   |
+#    | admin                                                 |  pinterest |
+#    | user                                                  |  dribbble  |
+#    | LINK                                                  |  github    |
