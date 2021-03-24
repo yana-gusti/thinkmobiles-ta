@@ -120,3 +120,46 @@ Then(/^I change my password to new$/,async () =>{
    await saveBtn.click();
   await browser.pause(2000);
 });
+
+Then(/^I adding post to bookmarks$/,async () =>{
+   const followBtn =await $('/html/body/div[1]/div[1]/div/div[1]/div/div[2]/ul/li[2]/div[3]/div[2]/div[2]/button');
+  await followBtn.click()
+  await browser.pause(3000);
+});
+
+Then(/^I delete post from bookmarks$/,async () =>{
+await browser.pause(3000);
+   const bookmarkBtn =await $('//*[@id="app"]/div/div[2]/div/main/div[2]/div[2]/ul/li/div[3]/div[2]/div[3]/button');
+   await browser.url('https://thinkmobiles.com/profile/?view=bookmark')
+   await bookmarkBtn.click()
+   await browser.pause(1000);
+});
+
+Then(/^I add (.+) to social (.+)$/, async (link, item) => {
+let newlink = link + date
+ const saveBtn= await $('.profile-socials-submit');
+ const linkInput= await $('[name="link"]');
+ const linkBtn= await $('[data-network="'+item+'"]');
+   await linkBtn.click();
+   await linkInput.clearValue()
+   await linkInput.setValue(newlink)
+   await browser.pause(2000);
+   await saveBtn.click();
+
+});
+Then(/^I add wrong (.+) to social (.+)$/, async (link, item) => {
+
+ const linkInput= await $('[name="link"]');
+ const linkBtn= await $('[data-network="'+item+'"]');
+   await linkBtn.click();
+   await linkInput.clearValue();
+   await linkInput.setValue(link);
+
+});
+
+Then(/^I see error message$/, async (link, item) => {
+  const errorMessage= await $('.error-text');
+  await expect(errorMessage).toHaveTextContaining('The link field format is invalid');
+  await browser.pause(2000);
+
+});

@@ -18,6 +18,10 @@ Feature: The ThinkMobiles Website
 
 
 
-  # Scenario:2: As a user, I change user profile description
+  Scenario:2: As a user, I add post to bookmarks list
+      Then I go to ThinkMobiles main page
+      Then I adding post to bookmarks
+      Then I delete post from bookmarks
+
 
 

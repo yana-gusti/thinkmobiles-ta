@@ -25,7 +25,8 @@ exports.config = {
 //       './features/login/*.feature'
 //         './features/user-profile/Changing-UserCredentials.feature'
 //         './features/user-profile/Adding-followers-bookmarks.feature'
-         './features/user-profile/Changing-password.feature'
+//         './features/user-profile/Changing-password.feature'
+         './features/user-profile/Adding-SocialLinks.feature'
 
 
     ],
