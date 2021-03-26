@@ -2,7 +2,6 @@ const { Given, When, Then} = require('@cucumber/cucumber');
 const { disable } = require('mockery');
 const LoginPage = require('../pageobjects/login.page');
 const ProfilePage = require('../pageobjects/profilePage');
-const PublicPage = require('../pageobjects/publicPage.content');
 const request = require('request');
 const fs = require("fs");
 const path = require('path');
