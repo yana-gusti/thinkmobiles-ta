@@ -6,6 +6,16 @@ const ProfilePage = require('../pageobjects/profilePage');
 const fs = require('fs');
 const { expect } = require('chai');
 
+
+Given('On search page',async () => {
+        await EditPage.openPage()
+});
+
+When('Input {string}', async (field) => {
+    await EditPage.googleFunction(field);
+    await browser.pause(5000);
+});
+
 Given('On Login page', () => {
     LoginPage.open();
 });
@@ -14,7 +24,7 @@ When('Log in with {string}, {string}', async (login, password) => {
     await LoginPage.login(login, password);
     const url = await browser.getUrl();
     expect(url).to.equal('https://thinkmobiles.com/profile/');
-    await browser.pause(3000);
+    await browser.pause(1000);
 });
 
 When('On Profile page click on the Drafts button', async () => {
@@ -52,7 +62,9 @@ When('Click on the Delete post button', async () => {
 When('Get deletePopup', async () => {
     const msg = await ProfilePage.getPopupDelete();
     expect(msg).to.equal('Are you sure you want to delete the post?');
+    await browser.pause(10000);
     await ProfilePage.confirmDelete();
+    await browser.pause(3000);
 })
 
 Then('Get succsessPopup', async () => {
@@ -66,7 +78,7 @@ When('On the Write post page enter {string}', async title => {
     await PublicPage.publicTitle(title);
 });
 
-When('Input content of {string} into Content and save', {timeout: 120 * 1000}, async path => {
+When('Input content of {string} into Content and save', { timeout: 120 * 1000 }, async path => {
     const text = await readFile(path);
     //console.log('TESTDATA: ' + text);
     await PublicPage.publicContent(text);
@@ -88,4 +100,5 @@ Then('Expect errorMessage', async () => {
     expect(msg).to.equal('Fill all required fields');
     console.log('MESSAGE ' + msg);
     await browser.pause(1000);
-})
+});
+

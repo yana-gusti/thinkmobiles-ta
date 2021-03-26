@@ -18,7 +18,13 @@ exports.config = {
         //'./features/write-post/edit-post.feature',
         //'./features/write-post/delete-post.feature',
         //'./features/write-post/neg-post.feature',
-        './features/write-post/post-api.feature'
+        //'./features/write-post/post-api.feature',
+        //'./features/write-post/bookmarks.feature',
+        //'./features/write-review/review.feature',
+        //'./features/write-review/edit-review.feature',
+        './features/write-review/negative-review.feature',
+        //'./features/write-review/delete-review.feature',
+        //'./features/google.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -33,12 +39,13 @@ exports.config = {
     capabilities: [{
 
         maxInstances: 1,
-        browserName: 'chrome',
+        browserName: 
+        'chrome',
         'goog:chromeOptions': {
-            // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
-            'args': ['--incognito']
+        //     //'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+             'args': ['--incognito']
 
-        },
+    },
         acceptInsecureCerts: true
     }],
     //
@@ -61,11 +68,13 @@ exports.config = {
 
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-    require: ['./features/step-definitions/post-steps.js', './features/step-definitions/api-steps-post.js'],
+        require: ['./features/step-definitions/post-steps.js',
+            './features/step-definitions/review-steps.js',
+            './features/step-definitions/api-steps-post.js'],
         //require: [
-            //    './features/step-definitions/steps.js',
-            //'./features/step-definitions/api-steps-a.js'
-            //    './features/step-definitions/regSteps.js'
+        //    './features/step-definitions/steps.js',
+        //'./features/step-definitions/api-steps-a.js'
+        //    './features/step-definitions/regSteps.js'
         //],
         //require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
         // "cucumberautocomplete.syncfeatures": "features/*feature",

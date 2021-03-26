@@ -5,6 +5,6 @@ Feature:API test
         # Given Register on TM site
         # When Confirm an email
         And Login on TM site
-        #And Write a post
+        And Write a post
         And Delete a post
         # Then Delete a user by id
