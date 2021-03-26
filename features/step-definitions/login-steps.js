@@ -1,15 +1,13 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const { disable } = require('mockery');
 const LoginPage = require('../pageobjects/login.page');
-// const request = require('request');
+const request = require('request');
 
 
 
 Given(/^I am on the login page$/,async () => {
     await LoginPage.open()
 });
-
-
 
 When(/^I click on (.+)$/, async (link) => {
     const MYlink = $(`[aria-label=${link}]`)
@@ -30,7 +28,7 @@ When(/^I enter not valid (.*) or (.*)$/,async (email, password) => {
    await LoginPage.notValid_login(email, password)
 });
 
-Then(/^I should see the main page with My profile$/,async () => {
+Then(/^I expect to see a Main page$/,async () => {
    await browser.pause(3000);
    await expect(browser).toHaveTitle('My profile | ThinkMobiles')
 });

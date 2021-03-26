@@ -13,11 +13,12 @@ exports.config = {
         //'./features/Login/loginAPI.feature',
         //'./features/**/registerViaApi.feature',
         //'./features/registration/signup.feature',
-        './features/registration/links.feature',
+        //'./features/registration/links.feature',
         //'./features/Registration/registerViaAPI.feature',
         //'./features/registration/signup_negative.feature',
         //./features/login/notValidLogin.feature',
         //'./features/login/create_delete-api.feature',
+        './features/registration/review-post.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -61,8 +62,9 @@ exports.config = {
         // <string[]> (file/dir) require files before executing features
 
         require: [
-            './features/step-definitions/api-steps-a.js',
-            './features/step-definitions/regSteps.js',
+         //   './features/step-definitions/api-steps-a.js',
+         //   './features/step-definitions/regSteps.js',
+            './features/step-definitions/review-steps.js',
         ],
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

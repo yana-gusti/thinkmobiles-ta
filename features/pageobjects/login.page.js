@@ -1,20 +1,13 @@
 const Page = require('./page');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
+
     get inputUsername() { return $('input.input.sign_up-input') }
     get inputPassword() { return $('input.input.input-password') }
     get btnSubmit() { return $('.sign_up-submit') }
+    get url() { return 'https://thinkmobiles.com/sign-in/'; }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
+
    async login(email, password) {
 
      await (await this.inputUsername).setValue(email);
@@ -30,11 +23,9 @@ class LoginPage extends Page {
         }
     }
 
-    /**
-     * overwrite specifc options to adapt it to page object
-     */
-    open() {
-        return super.open();
+
+    open () {
+        return browser.url('https://thinkmobiles.com/sign-in/')
     }
 }
 
