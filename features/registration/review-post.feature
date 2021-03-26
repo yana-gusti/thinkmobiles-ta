@@ -13,6 +13,10 @@ Feature: The TM Website
     Then Fill in an app rating
     Then Input an overall impression from "impression.txt"
     Then Input a Review description from "review.txt"
+    Then Add image and fill in short description
+    Then Add pros and cons
+#    Then Add link to video and fill in short description
+#    Then Make a preview look
     Then Save as a draft
 
 

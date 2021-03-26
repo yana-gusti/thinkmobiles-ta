@@ -87,7 +87,23 @@ Then(/^Input a Review description from "review.txt"$/, () => {
     browser.pause(3000);
 });
 
+Then(/^Make a preview look$/, () => {
+    const prwBtn = $('.actions_bar-button.actions_bar-button--preview');
+    prwBtn.click();
+});
+
+Then(/^Add image and fill in short description$/, () => {
+    const filePath = path.join( 'Files/skin-epic.jpg');
+    const remoteFilePath = browser.uploadFile(filePath);
+    $('.post_create-banner-input').setValue(remoteFilePath);
+});
+
+Then(/^Add pros and cons$/, () => {
+    $('.review_create-feature-input').setValue('someCons')
+});
+
 Then(/^Save as a draft$/, () => {
     const saveAsDraftBtn = $('.actions_bar-button.actions_bar-button--draft');
+    saveAsDraftBtn.scrollIntoView();
     saveAsDraftBtn.click();
 });
