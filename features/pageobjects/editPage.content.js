@@ -105,10 +105,9 @@ class EditPage {
         for (let i = 0; i < 40; i++) {
             await browser.keys('Back space');
         }
-        await browser.pause(10000);
-        // const saveButton = await $('.actions_bar-button.actions_bar-button--draft');
-        // saveButton.scrollIntoView();
-        // saveButton.click();
+        const saveButton = await $('.actions_bar-button.actions_bar-button--draft');
+        saveButton.scrollIntoView();
+        saveButton.click();
 
     }
 
