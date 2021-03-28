@@ -108,6 +108,5 @@ When('Fill the {string} field', async () => {
 
 When('Clear all fields and save review', async () => {
     await EditPage.clearFields();
-    await browser.pause(10000);
     await ProfilePage.saveReview();
 });

@@ -6,16 +6,6 @@ const ProfilePage = require('../pageobjects/profilePage');
 const fs = require('fs');
 const { expect } = require('chai');
 
-
-Given('On search page',async () => {
-        await EditPage.openPage()
-});
-
-When('Input {string}', async (field) => {
-    await EditPage.googleFunction(field);
-    await browser.pause(5000);
-});
-
 Given('On Login page', () => {
     LoginPage.open();
 });
@@ -44,7 +34,6 @@ Then('On the Write post page enter {string}, {string} and click on the Save as a
 When('Edit {string} and {string}', async (newTitle, newContent) => {
     await ProfilePage.editFirstPost();
     await EditPage.editContent(newTitle, newContent);
-    console.log('TITLE ' + newTitle);
     await browser.pause(5000);
 });
 
@@ -62,9 +51,8 @@ When('Click on the Delete post button', async () => {
 When('Get deletePopup', async () => {
     const msg = await ProfilePage.getPopupDelete();
     expect(msg).to.equal('Are you sure you want to delete the post?');
-    await browser.pause(10000);
+    await browser.pause(1000);
     await ProfilePage.confirmDelete();
-    await browser.pause(3000);
 })
 
 Then('Get succsessPopup', async () => {

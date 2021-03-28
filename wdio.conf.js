@@ -14,17 +14,15 @@ exports.config = {
         //'./features/**/registerViaApi.feature',
         //'./features/Registration/signup.feature'
         //'./features/Registration/links.feature'
-        //'./features/write-post/post.feature',
-        //'./features/write-post/edit-post.feature',
-        //'./features/write-post/delete-post.feature',
-        //'./features/write-post/neg-post.feature',
-        //'./features/write-post/post-api.feature',
-        //'./features/write-post/bookmarks.feature',
-        //'./features/write-review/review.feature',
-        //'./features/write-review/edit-review.feature',
-        './features/write-review/negative-review.feature',
-        //'./features/write-review/delete-review.feature',
-        //'./features/google.feature'
+        // './features/write-post/post.feature',
+        // './features/write-post/edit-post.feature',
+        // './features/write-post/delete-post.feature',
+        // './features/write-post/neg-post.feature',
+        // './features/write-post/post-api.feature',
+        // './features/write-review/review.feature',
+        // './features/write-review/edit-review.feature',
+        // './features/write-review/delete-review.feature',
+        // './features/write-review/negative-review.feature',
     ],
     // Patterns to exclude.
     exclude: [
