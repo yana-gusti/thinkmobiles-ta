@@ -9,11 +9,22 @@ exports.config = {
     // ==================
 
     specs: [
-        // './features/**/*.feature'
-        //'./features/Login/loginAPI.feature'
-        //'./features/**/registerViaApi.feature',
-        //'./features/Registration/signup.feature'
-        //'./features/Registration/links.feature'
+        './features/registration/signup.feature',
+        // './features/registration/links.feature',
+        // './features/registration/registerViaAPI.feature',
+        // './features/Login/loginAPI.feature',
+
+        //============================================================================================
+
+        // './features/login/LinksChecker.feature',
+        //'./features/login/login.feature',
+        // './features/login/notValidLogin.feature',
+        // './features/login/create_login_delete-api.feature',
+        // './features/user-profile/Changing-UserCredentials.feature',
+        // './features/user-profile/Adding-followers-bookmarks.feature',
+        // './features/user-profile/Changing-password.feature',
+        // './features/user-profile/Adding-SocialLinks.feature',
+
         // './features/write-post/post.feature',
         // './features/write-post/edit-post.feature',
         // './features/write-post/delete-post.feature',
@@ -37,13 +48,13 @@ exports.config = {
     capabilities: [{
 
         maxInstances: 1,
-        browserName: 
-        'chrome',
+        browserName:
+            'chrome',
         'goog:chromeOptions': {
-        //     //'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
-             'args': ['--incognito']
+            //     //'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+            'args': ['--incognito']
 
-    },
+        },
         acceptInsecureCerts: true
     }],
     //
@@ -66,16 +77,18 @@ exports.config = {
 
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/post-steps.js',
-            './features/step-definitions/review-steps.js',
-            './features/step-definitions/api-steps-post.js'],
-        //require: [
-        //    './features/step-definitions/steps.js',
-        //'./features/step-definitions/api-steps-a.js'
-        //    './features/step-definitions/regSteps.js'
-        //],
-        //require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
-        // "cucumberautocomplete.syncfeatures": "features/*feature",
+
+        require: [
+            // './features/step-definitions/api-steps-a.js',
+            // './features/step-definitions/api-steps.js',
+            // './features/step-definitions/regSteps.js',
+            // './features/step-definitions/post-steps.js',
+            // './features/step-definitions/review-steps.js',
+            // './features/step-definitions/api-steps-post.js',
+            // './features/step-definitions/login-steps.js',
+            // './features/step-definitions/profile-steps.js'
+        ],
+
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],
