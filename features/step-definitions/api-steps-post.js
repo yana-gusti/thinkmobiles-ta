@@ -1,5 +1,5 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const apiHelper = require('../../helpers/api-helper');
+const apiHelper = require('../../helpers/api-write-helper');
 const { expect } = require('chai');
 
 const userPost ={

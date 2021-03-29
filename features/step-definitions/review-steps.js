@@ -1,8 +1,8 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
-const LoginPage = require('../pageobjects/signInPage.login');
-const PublicPage = require('../pageobjects/publicPage.content');
-const EditPage = require('../pageobjects/editPage.content');
-const ProfilePage = require('../pageobjects/profilePage');
+const LoginPage = require('../export-write/signInPage.login');
+const PublicPage = require('../export-write/publicPage.content');
+const EditPage = require('../export-write/editPage.content');
+const ProfilePage = require('../export-write/profilePage');
 const fs = require('fs');
 const { expect } = require('chai');
 
