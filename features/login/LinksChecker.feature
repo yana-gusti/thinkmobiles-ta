@@ -13,7 +13,7 @@ Feature: The ThinkMobiles login page
         | "Login with Linkedin account" | LinkedIn Login, Sign in       |
         | "Login with Github account"   | Sign in to GitHub · GitHub    |
 
-  Scenario:2: As a user, I chek other links
+  Scenario Outline:2: As a user, I chek other links
 
     Given I am on the login page
     When As a user, I click on <link>
