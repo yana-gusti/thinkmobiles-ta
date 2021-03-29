@@ -7,4 +7,3 @@ I changing user profile settings
      When I send request to return my old password
      Then I try to login on TM site with old password
 
-
