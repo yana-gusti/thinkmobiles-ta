@@ -7,12 +7,21 @@ Feature: The ThinkMobiles Website
     Then User see <message> error
 
     Examples:
+<<<<<<< HEAD
       | email                | password | message                                          |
       | archy787ua@gmail.com | 1def     | The password field must be at least 6 characters |
       | d1def                | frd2kmr  | The email field must be a valid email            |
       |                      | frd2kmr  | The email field is required                      |
       | archy787ua@gmail.com | itsEmpty | The password field is required                   |
       |                      | itsEmpty | field is required                                |
+=======
+      | email                 | password | message                                          |
+      | archy787ua@gmail.com | 1def     | The password field must be at least 6 characters |
+      | d1def                 | frd2kmr  | The email field must be a valid email            |
+      |                       | frd2kmr  | The email field is required                      |
+      | archy787ua@gmail.com | itsEmpty | The password field is required                   |
+      |                       | itsEmpty | field is required                                |
+>>>>>>> ad8f580a4a8e6f14523294443ce766ec3c1b3051
 
 
   Scenario Outline:2: I can't log into the website with default data
@@ -34,5 +43,9 @@ Feature: The ThinkMobiles Website
 
     Examples:
       | email                                                                                                     | password                                                     |
+<<<<<<< HEAD
       | archy787ua@gmail.com                                                                                      | lldksckvnjfnrfjndkcxnsllkfkesfmkdmsfkmlemskmfcssdlkefmsdfemc |
+=======
+      | archy787ua@gmail.com                                                                                     | lldksckvnjfnrfjndkcxnsllkfkesfmkdmsfkmlemskmfcssdlkefmsdfemc |
+>>>>>>> ad8f580a4a8e6f14523294443ce766ec3c1b3051
       | dantes.8uasdkcksdsdcsdcscsddddddddddddfffffffssssssdddddddfclkdsdcscmsfmcs8@smdcsdcgmaisdmcscmscmsdcl.com | pppword                                                      |

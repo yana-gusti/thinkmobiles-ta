@@ -9,6 +9,7 @@ exports.config = {
     // ==================
 
     specs: [
+<<<<<<< HEAD
         //'./features/registration/signup.feature',
         // './features/registration/links.feature',
         // './features/registration/registerViaAPI.feature',
@@ -31,6 +32,28 @@ exports.config = {
         // './features/write-review/edit-review.feature',
         // './features/write-review/delete-review.feature',
         // './features/write-review/negative-review.feature',
+=======
+//         './features/**/*.feature'
+
+//       './features/**/registerViaApi.feature'
+//       './features/registration/signup.feature'
+//       './features/registration/links.feature'
+//       './features/registration/registerViaAPI.feature'
+
+//============================================================================================
+
+//       './features/login/LinksChecker.feature'
+//       './features/login/login.feature'
+//       './features/login/notValidLogin.feature'
+//       './features/login/create_login_delete-api.feature'
+//       './features/login/*.feature'
+//         './features/user-profile/Changing-UserCredentials.feature'
+         './features/user-profile/Adding-followers-bookmarks.feature'
+//         './features/user-profile/Changing-password.feature'
+//         './features/user-profile/Adding-SocialLinks.feature'
+
+
+>>>>>>> ad8f580a4a8e6f14523294443ce766ec3c1b3051
     ],
     // Patterns to exclude.
     exclude: [
@@ -86,6 +109,18 @@ exports.config = {
             // './features/step-definitions/profile-steps.js'
         ],
 
+<<<<<<< HEAD
+=======
+//        ],
+//==============================FOR LOGIN TESTS================================================================
+
+//        require: ['./features/step-definitions/api-steps.js'],
+        require: ['./features/step-definitions/profile-steps.js'],
+//        require: ['./features/step-definitions/login-steps.js'],
+
+
+//===============================================================================================================
+>>>>>>> ad8f580a4a8e6f14523294443ce766ec3c1b3051
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],
