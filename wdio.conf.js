@@ -9,18 +9,18 @@ exports.config = {
     // ==================
 
     specs: [
-        // './features/registration/signup.feature',
-        // './features/registration/links.feature',
-        // './features/registration/registerViaAPI.feature',
+         './features/registration/signup.feature',
+         './features/registration/links.feature',
+         './features/registration/registerViaAPI.feature',
 
-         //'./features/login/LinksChecker.feature',
-        //'./features/login/login.feature',
-         //'./features/login/notValidLogin.feature',
-        // './features/login/create_login_delete-api.feature',
-         // './features/user-profile/Changing-UserCredentials.feature',
-         // './features/user-profile/Adding-followers-bookmarks.feature',
-         // './features/user-profile/Changing-password.feature',
-         // './features/user-profile/Adding-SocialLinks.feature',
+         './features/login/LinksChecker.feature',
+         './features/login/login.feature',
+         './features/login/notValidLogin.feature',
+         './features/login/create_login_delete-api.feature',
+         './features/user-profile/Changing-UserCredentials.feature',
+         './features/user-profile/Adding-followers-bookmarks.feature',
+         './features/user-profile/Changing-password.feature',
+         './features/user-profile/Adding-SocialLinks.feature',
 
         './features/write-post/post.feature',
         './features/write-post/edit-post.feature',
