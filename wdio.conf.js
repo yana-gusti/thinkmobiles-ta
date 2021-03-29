@@ -9,28 +9,28 @@ exports.config = {
     // ==================
 
     specs: [
-         './features/registration/signup.feature',
-         './features/registration/links.feature',
-         './features/registration/registerViaAPI.feature',
+//         './features/**/*.feature'
 
-         './features/login/LinksChecker.feature',
-         './features/login/login.feature',
-         './features/login/notValidLogin.feature',
-         './features/login/create_login_delete-api.feature',
-         './features/user-profile/Changing-UserCredentials.feature',
-         './features/user-profile/Adding-followers-bookmarks.feature',
-         './features/user-profile/Changing-password.feature',
-         './features/user-profile/Adding-SocialLinks.feature',
+//       './features/**/registerViaApi.feature'
+//       './features/registration/signup.feature'
+//       './features/registration/links.feature'
+//       './features/registration/registerViaAPI.feature'
 
-        './features/write-post/post.feature',
-        './features/write-post/edit-post.feature',
-        './features/write-post/delete-post.feature',
-        './features/write-post/neg-post.feature',
-        './features/write-post/post-api.feature',
-        './features/write-review/review.feature',
-        './features/write-review/edit-review.feature',
-        './features/write-review/delete-review.feature',
-        './features/write-review/negative-review.feature',
+//============================================================================================
+
+//       './features/login/LinksChecker.feature'
+//       './features/login/login.feature'
+//       './features/login/notValidLogin.feature'
+//       './features/login/create_login_delete-api.feature'
+//       './features/login/*.feature'
+//         './features/user-profile/Changing-UserCredentials.feature'
+//         './features/user-profile/Adding-followers-bookmarks.feature'
+//         './features/user-profile/Changing-password.feature'
+//         './features/user-profile/Adding-SocialLinks.feature'
+         './features/user-profile/Changing-passwordAPI.feature'
+
+
+
     ],
     // Patterns to exclude.
     exclude: [
@@ -40,19 +40,22 @@ exports.config = {
     // Capabilities
     // ============
 
-    maxInstances: 1,
+    maxInstances: 10,
 
     capabilities: [{
 
-        maxInstances: 1,
-        browserName:
-            'chrome',
-        'goog:chromeOptions': {
-            //     //'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
-            'args': ['--incognito']
+        maxInstances: 5,
+        browserName: 'chrome',
+                'goog:chromeOptions': {
+                                    'args': ['--incognito']
 
-        },
+                    // 'args': ['--headless', '--disable-gpu', '--window-size=1280,1024']
+
+                },
         acceptInsecureCerts: true
+
+
+
     }],
     //
     // ===================
@@ -61,31 +64,37 @@ exports.config = {
 
     logLevel: 'info',
     bail: 0,
-    waitforTimeout: 80000,
+    waitforTimeout: 30000,
     connectionRetryTimeout: 120000,
 
     connectionRetryCount: 3,
     services: ['chromedriver'],
 
     framework: 'cucumber',
-    reporters: ['spec', 'junit'],
+    reporters: ['spec','junit'],
 
 
 
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
 
-        require: [
-            './features/step-definitions/api-steps-a.js',
-            './features/step-definitions/api-steps.js',
-            './features/step-definitions/regSteps.js',
-            './features/step-definitions/post-steps.js',
-            './features/step-definitions/review-steps.js',
-            './features/step-definitions/api-steps-post.js',
-            './features/step-definitions/login-steps.js',
-            './features/step-definitions/profile-steps.js'
-        ],
+//==================================================================================================
+   //        require: [
+   //    './features/step-definitions/steps.js',
+   //    './features/step-definitions/api-steps-a.js'
+   //    './features/step-definitions/api-steps.js'
+   //    './features/step-definitions/regSteps.js'
 
+//        ],
+//==============================FOR LOGIN TESTS================================================================
+
+//        require: ['./features/step-definitions/api-steps.js'],
+        require: ['./features/step-definitions/api-profile-steps.js'],
+//        require: ['./features/step-definitions/profile-steps.js'],
+//        require: ['./features/step-definitions/login-steps.js'],
+
+
+//===============================================================================================================
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         requireModule: [],
@@ -155,7 +164,7 @@ exports.config = {
      * @param {Array} args arguments that command would receive
      */
 
-
+    
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

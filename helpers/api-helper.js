@@ -47,7 +47,25 @@ module.exports = thisModule = {
         let user = body['user'];
         let id = user.id;
         return id;
-    }
+    },
+
+     loginToGetCookies: async function (email, password) {
+            const data = {
+                email: email,
+                password: password,
+                rememberMe: false
+            };
+            const url = 'https://thinkmobiles.com/api/auth/sign-in/'
+
+            let headers = new Map();
+            headers.set("Content-Type", "application/json");
+            headers.set("User-Agent", "Thinkmobiles-qa");
+
+            let response = await thisModule.sendRequest("POST", url, JSON.stringify(data), headers);
+
+            let myCookie=response.headers['set-cookie']
+            return myCookie
+        }
 };
 
 function mapHeaders(value) {
