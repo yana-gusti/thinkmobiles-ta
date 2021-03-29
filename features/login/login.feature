@@ -8,7 +8,7 @@ Feature: The ThinkMobiles Website
 
     Examples:
       | email                 | password  |
-      | dantes.8ua8@gmail.com | lolyP0P11 |
+      | archy787ua@gmail.com | lolyP0P11 |
 
   # Scenario:1: As a user, I can log into the website with cheked Stay logged in chekbox
 
@@ -19,4 +19,4 @@ Feature: The ThinkMobiles Website
 
   #   Examples:
   #     | email                 | password  |
-  #     | dantes.8ua8@gmail.com | lolyP0P11 |
+  #     | archy787ua@gmail.com | lolyP0P11 |

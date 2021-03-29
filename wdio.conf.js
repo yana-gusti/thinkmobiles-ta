@@ -24,9 +24,9 @@ exports.config = {
 //       './features/login/create_login_delete-api.feature'
 //       './features/login/*.feature'
 //         './features/user-profile/Changing-UserCredentials.feature'
-//         './features/user-profile/Adding-followers-bookmarks.feature'
+         './features/user-profile/Adding-followers-bookmarks.feature'
 //         './features/user-profile/Changing-password.feature'
-         './features/user-profile/Adding-SocialLinks.feature'
+//         './features/user-profile/Adding-SocialLinks.feature'
 
 
     ],
@@ -86,8 +86,10 @@ exports.config = {
 //        ],
 //==============================FOR LOGIN TESTS================================================================
 
-//        require: ['./features/step-definitions/login-steps.js', './features/step-definitions/api-steps.js'],
+//        require: ['./features/step-definitions/api-steps.js'],
         require: ['./features/step-definitions/profile-steps.js'],
+//        require: ['./features/step-definitions/login-steps.js'],
+
 
 //===============================================================================================================
         backtrace: false,

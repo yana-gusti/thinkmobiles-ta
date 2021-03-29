@@ -2,7 +2,7 @@ Feature: The ThinkMobiles Website
 
   Background:
       Given I am on the login page
-      When I login with email : dantes.8ua8@gmail.com and password : lolyP0P11
+      When I login with email : archy787ua@gmail.com and password : lolyP0P11
 
   Scenario Outline:1: As a user, I adding social links to my profile
     Then I add <link> to social <item>
