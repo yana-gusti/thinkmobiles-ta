@@ -18,24 +18,18 @@
     "@wdio/junit-reporter": "latest",
     "@wdio/local-runner": "latest",
     "@wdio/spec-reporter": "latest",
-    "axios": "latest",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chromedriver": "^88.0.0",
     "cucumber": "4.1.0",
     "request": "latest",
     "wdio-chromedriver-service": "latest",
-    "preset": "react-native",
+    "fs": "0.0.1-security",
     "fs-plus": "3.0.2",
-    "moment": "2.24.0",
-    "os-homedir": "1.0.2 ",
-    "crypto": "^1.0.1",
-    "fs": "0.0.1-security"
+    "crypto": "^1.0.1"
   },
   "scripts": {
     "test": "npx wdio run wdio.conf.js"
   },
-  "dependencies": {
-    
-  }
+  "dependencies": {}
 }

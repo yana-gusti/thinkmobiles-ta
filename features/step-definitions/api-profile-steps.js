@@ -63,7 +63,6 @@ When(/^I send request to return my old password$/, async () => {
         headers.set("Cookie",`${setCookie}`);
 
 
-
     responseProfile = await apiHelper.sendRequest("POST", urlProfile, JSON.stringify(dataPass), headers);
         console.log(responseProfile.request.body);
         console.log(responseProfile.request.headers);
@@ -71,3 +70,24 @@ When(/^I send request to return my old password$/, async () => {
         console.log(`Profile statusCode: ${responseProfile.statusCode}`);
 });
 
+When(/^I send request to change my old photo$/, async () => {
+   let password='lolyP0P11';
+   let  setCookie= await apiHelper.loginToGetCookies(email, password);
+
+   const responseProfile = await apiHelper.postPhoto('./testData/doom-eternal.jpg', setCookie);
+        console.log(responseProfile.request.body);
+        console.log(responseProfile.request.headers);
+        console.log(responseProfile.body);
+        console.log(`StatusCode: ${responseProfile.statusCode}`);
+});
+
+Then(/^I send request to return my old photo$/, async () => {
+   let password='lolyP0P11';
+   let  setCookie= await apiHelper.loginToGetCookies(email, password);
+
+   const responseProfile = await apiHelper.postPhoto('./testData/dead-space-2.jpg', setCookie);
+        console.log(responseProfile.request.body);
+        console.log(responseProfile.request.headers);
+        console.log(responseProfile.body);
+        console.log(`StatusCode: ${responseProfile.statusCode}`);
+});

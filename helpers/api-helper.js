@@ -1,4 +1,5 @@
 const request = require('request');
+const fs = require('fs');
 
 module.exports = thisModule = {
 
@@ -65,7 +66,20 @@ module.exports = thisModule = {
 
             let myCookie=response.headers['set-cookie']
             return myCookie
-        }
+        },
+
+     postPhoto: async (coverImagePath, loginCookie) => {
+
+              const url = 'https://thinkmobiles.com/api/profile/user-info/';
+              const headers = {
+                  'Accept': 'application/json, text/plain, */*',
+                  'User-Agent': 'Thinkmobiles-qa',
+                  'Cookie': loginCookie,
+                  'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryoexruEpnXo5TFDfY'
+                };
+              const avatarImage = fs.readFileSync(coverImagePath);
+              return await thisModule.sendRequest('POST', url, null, headers, { formData: {avatarImage:fs.createReadStream(coverImagePath) } });
+            }
 };
 
 function mapHeaders(value) {

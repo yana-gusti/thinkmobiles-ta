@@ -9,29 +9,29 @@ exports.config = {
     // ==================
 
     specs: [
-         './features/registration/signup.feature',
-         './features/registration/links.feature',
-         './features/registration/registerViaAPI.feature',
-
-         './features/login/LinksChecker.feature',
-         './features/login/login.feature',
-         './features/login/notValidLogin.feature',
-         './features/login/create_login_delete-api.feature',
-         './features/user-profile/Changing-UserCredentials.feature',
-         './features/user-profile/Adding-followers-bookmarks.feature',
-         './features/user-profile/Changing-password.feature',
-         './features/user-profile/Adding-SocialLinks.feature',
+//         './features/registration/signup.feature',
+//         './features/registration/links.feature',
+//         './features/registration/registerViaAPI.feature',
+//
+//         './features/login/LinksChecker.feature',
+//         './features/login/login.feature',
+//         './features/login/notValidLogin.feature',
+//         './features/login/create_login_delete-api.feature',
+//         './features/user-profile/Changing-UserCredentials.feature',
+//         './features/user-profile/Adding-followers-bookmarks.feature',
+//         './features/user-profile/Changing-password.feature',
+//         './features/user-profile/Adding-SocialLinks.feature',
          './features/user-profile/Changing-passwordAPI.feature'
 
-        './features/write-post/post.feature',
-        './features/write-post/edit-post.feature',
-        './features/write-post/delete-post.feature',
-        './features/write-post/neg-post.feature',
-        './features/write-post/post-api.feature',
-        './features/write-review/review.feature',
-        './features/write-review/edit-review.feature',
-        './features/write-review/delete-review.feature',
-        './features/write-review/negative-review.feature',
+//        './features/write-post/post.feature',
+//        './features/write-post/edit-post.feature',
+//        './features/write-post/delete-post.feature',
+//        './features/write-post/neg-post.feature',
+//        './features/write-post/post-api.feature',
+//        './features/write-review/review.feature',
+//        './features/write-review/edit-review.feature',
+//        './features/write-review/delete-review.feature',
+//        './features/write-review/negative-review.feature',
     ],
     // Patterns to exclude.
     exclude: [
@@ -78,14 +78,14 @@ exports.config = {
 
         require: [
             './features/step-definitions/api-profile-steps.js',
-            './features/step-definitions/api-steps-a.js',
-            './features/step-definitions/api-steps.js',
-            './features/step-definitions/regSteps.js',
-            './features/step-definitions/post-steps.js',
-            './features/step-definitions/review-steps.js',
-            './features/step-definitions/api-steps-post.js',
-            './features/step-definitions/login-steps.js',
-            './features/step-definitions/profile-steps.js'
+//            './features/step-definitions/api-steps-a.js',
+//            './features/step-definitions/api-steps.js',
+//            './features/step-definitions/regSteps.js',
+//            './features/step-definitions/post-steps.js',
+//            './features/step-definitions/review-steps.js',
+//            './features/step-definitions/api-steps-post.js',
+//            './features/step-definitions/login-steps.js',
+//            './features/step-definitions/profile-steps.js'
         ],
 
         backtrace: false,
