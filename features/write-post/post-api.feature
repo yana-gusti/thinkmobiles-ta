@@ -1,6 +1,6 @@
 Feature:API test
 
-    Scenario:First test example
+    Scenario Outline: API post
 
         Given Register on TM site
         When Confirm an email

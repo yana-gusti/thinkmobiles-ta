@@ -100,7 +100,7 @@ class EditPage {
             await browser.keys('Back space');
         }
         await browser.pause(2000);
-        const linkVideo = await $('//*[@id="app"]/div/div[2]/div[1]/div[2]/div/div[3]/div/div[2]');
+        const linkVideo = await $('/html/body/div/div/div/div[1]/div[2]/div/div[3]/div/div[2]/input');
         linkVideo.click({x: 30});
         await browser.execute(input => input.click(), linkVideo);
         for (let i = 0; i < 55; i++) {

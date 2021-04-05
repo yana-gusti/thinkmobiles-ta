@@ -2,20 +2,49 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const apiHelper = require('../../helpers/api-write-helper');
 const { expect } = require('chai');
 
-const userPost ={
-    title: 'Step',
-    content: 'Steps to update',
-    loginCookie: null
-};
-
 const date = new Date().getTime();
 
+const reviewData = {
+    id: 0,
+    userId: null,
+    mode: 'draft',
+    type: 'video',
+    target: {
+        type: 'software',
+        id: 37186
+    },
+    overall: {
+        using: 'Free trial',
+        rating: {
+            estimates: {
+                quality: 4,
+                functionality: 4,
+                usability: 3,
+                ability: 3,
+                schedule: null,
+                cost: null,
+                communication: null
+            },
+            avg: 3.5
+        }
+    },
+    description: {
+        short: 'Lorem ispum dolor sit amet, consectetur adipiscing elit...',
+        pros: [],
+        cons: []
+    },
+    video: {
+        text: 'Lorem ispum dolor...',
+        src: 'https://www.youtube.com/embed/Qig1tF5iNzI',
+        image: 'https://img.youtube.com/vi/Qig1tF5iNzI/mqdefault.jpg'
+    },
+}
 const testUser = {
     id: null,
-    email: 'test' + date + '@gmail.com',// 'panoramamiruz@gmail.com',
-    password: '123456', //'PanoramaMir007',
-    firstName: 'Poni', // 'testFirstName',
-    lastName: 'Rama', // 'testLastName'
+    email:'test' + date + '@gmail.com', 
+    password: '123456',
+    firstName: 'testFirstName',
+    lastName: 'testLastName',
     loginCookie: null
 }
 
@@ -25,23 +54,21 @@ const headers = {
     'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8'
 };
 
-Given('Register on TM site', async () => {
+Given('Register on a site', async () => {
     const response = await apiHelper.register(testUser.email, testUser.password, testUser.firstName, testUser.lastName);
     expect(response.statusCode).to.equal(201);
-    console.log(response.statusCode);
     const body = JSON.parse(response.body);
-    console.log('Body: ',body);
     expect(body.payload).to.equal('An email with an activation link has been sent to your inbox.');
 });
 
-When('Confirm an email', async () => {
+When('Confirm email', async () => {
     const response = await apiHelper.confirmEmail(testUser.email);
 
     // TODO: Check response
     expect(response.statusCode).to.equal(200);
 });
 
-When('Login on TM site', async () => {
+When('Login on a site', async () => {
     const response = await apiHelper.login(testUser.email, testUser.password);
     expect(response.statusCode).to.equal(200);
     const loggedInUser = JSON.parse(response.body).user;
@@ -54,24 +81,20 @@ When('Login on TM site', async () => {
 });
 
 
-When('Write a post', async () => {
-    const response = await apiHelper.postDraft(userPost.title, userPost.content, './testData/testImage.jpg', testUser.loginCookie);
-    expect(response.statusCode).to.equal(201);
+When('Write a review', async () => {
+    reviewData.userId=testUser.id;
+    const response = await apiHelper.reviewDraft(reviewData, testUser.loginCookie);
     const body = JSON.parse(response.body);
-    console.log('statusCode: ',response.statusCode);
-    expect(body.url).to.equal('/profile/?view=post&type=draft');
+    expect(body.payload).to.equal('Review successfully saved to drafts');
 });
 
-When('Delete a post', async () => {
-    const userPost = await apiHelper.getLastUserPost(testUser.id, testUser.loginCookie);
-    console.log(userPost);
-    const responseDelete = await apiHelper.deletePost(userPost.id);
-    console.log(responseDelete.body);
-    console.log(responseDelete.statusCode);
+When('Delete a review', async () => {
+    const userReview = await apiHelper.getLastUserReview(testUser.id, testUser.loginCookie);
+    const responseDelete = await apiHelper.deleteReview(userReview.id);
     expect(responseDelete.statusCode).to.equal(200);
 });
 
-Then('Delete a user by id', async () => {
+Then('Delete a user', async () => {
     const response = await apiHelper.deleteUser(testUser.id);
     expect(response.statusCode).to.equal(200);
 });

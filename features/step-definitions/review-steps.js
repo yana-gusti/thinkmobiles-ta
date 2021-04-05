@@ -108,5 +108,4 @@ When('Fill the {string} field', async () => {
 
 When('Clear all fields and save review', async () => {
     await EditPage.clearFields();
-    await ProfilePage.saveReview();
 });

@@ -70,6 +70,39 @@ module.exports = thisModule = {
         return await sendRequest('DELETE', url, null, headers)
     },
 
+    reviewDraft: async ( formData, loginCookie) => {
+        const url = 'https://thinkmobiles.com/api/review/';
+        const headers = {
+            'User-Agent': 'Thinkmobiles-qa',
+            'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
+            'Cookie': loginCookie,
+            'Content-Type': 'multipart/form-data',
+        };
+        return await sendRequest('POST', url, null, headers, {formData: { id: formData.id, userId: formData.userId, mode: formData.mode, type: formData.type, target: JSON.stringify(formData.target), overall: JSON.stringify(formData.overall), description: JSON.stringify(formData.description), video: JSON.stringify(formData.video) }});
+    },
+
+    getLastUserReview: async (userId, loginCookie) => {
+        const url = 'https://thinkmobiles.com/api/profile/reviews/?status=draft&id='+ userId
+        const headers = {
+            'User-Agent': 'Thinkmobiles-qa',
+            'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
+            'Cookie': loginCookie
+        };
+        const response = await sendRequest('GET', url, null, headers);
+        const body = JSON.parse(response.body);
+        return body.data[0];
+    },
+
+    deleteReview: async (reviewId, loginCookie) => {
+        const url = 'https://thinkmobiles.com/api/testing/user-review/' + reviewId + '/';
+        const headers = {
+            'User-Agent': 'Thinkmobiles-qa',
+            'X-Testing-Token': 'fsdjdsfJKdfhs723kldsfjkls23890klsdfkljhhvxcLKJsdf98732lkkmsfdjhksf8',
+            'Cookie': loginCookie
+        };
+        return await sendRequest('DELETE', url, null, headers)
+    },
+
     deleteUser: async (userId) => {
         const url = 'https://thinkmobiles.com/api/testing/user/' + userId + '/';
         return await sendRequest('DELETE', url, null, defaultHeaders);

@@ -21,17 +21,18 @@ exports.config = {
 //         './features/user-profile/Adding-followers-bookmarks.feature',
 //         './features/user-profile/Changing-password.feature',
 //         './features/user-profile/Adding-SocialLinks.feature',
-         './features/user-profile/Changing-passwordAPI.feature'
+         './features/user-profile/Changing-passwordAPI.feature',
 
-//        './features/write-post/post.feature',
-//        './features/write-post/edit-post.feature',
-//        './features/write-post/delete-post.feature',
-//        './features/write-post/neg-post.feature',
-//        './features/write-post/post-api.feature',
-//        './features/write-review/review.feature',
-//        './features/write-review/edit-review.feature',
-//        './features/write-review/delete-review.feature',
-//        './features/write-review/negative-review.feature',
+        // './features/write-post/post.feature',
+        // './features/write-post/edit-post.feature',
+        // './features/write-post/delete-post.feature',
+        // './features/write-post/neg-post.feature',
+        // './features/write-post/post-api.feature',
+        // './features/write-review/review.feature',
+        // './features/write-review/edit-review.feature',
+        // './features/write-review/delete-review.feature',
+        // './features/write-review/negative-review.feature',
+        './features/write-review/review-api.feature',
     ],
     // Patterns to exclude.
     exclude: [
@@ -77,15 +78,15 @@ exports.config = {
         // <string[]> (file/dir) require files before executing features
 
         require: [
-            './features/step-definitions/api-profile-steps.js',
-//            './features/step-definitions/api-steps-a.js',
-//            './features/step-definitions/api-steps.js',
-//            './features/step-definitions/regSteps.js',
-//            './features/step-definitions/post-steps.js',
-//            './features/step-definitions/review-steps.js',
-//            './features/step-definitions/api-steps-post.js',
-//            './features/step-definitions/login-steps.js',
-//            './features/step-definitions/profile-steps.js'
+            './features/step-definitions/api-steps-a.js',
+            './features/step-definitions/api-steps.js',
+            './features/step-definitions/regSteps.js',
+            './features/step-definitions/post-steps.js',
+            './features/step-definitions/review-steps.js',
+            './features/step-definitions/api-steps-post.js',
+            './features/step-definitions/api-steps-review.js',
+            './features/step-definitions/login-steps.js',
+            './features/step-definitions/profile-steps.js'
         ],
 
         backtrace: false,

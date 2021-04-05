@@ -10,4 +10,4 @@ Feature: The Write a post title testing
         Examples:
             | title              | content |
             | Steps to reproduce | Step 1  |
-            | 12365              | gogo    |
+            # | 12365              | gogo    |
