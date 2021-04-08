@@ -12,8 +12,8 @@ const date = new Date().getTime();
 
 const testUser = {
     id: null,
-    email: 'test' + date + '@gmail.com',// 'panoramamiruz@gmail.com',
-    password: '123456', //'PanoramaMir007',
+    email: 'test' + date + '@gmail.com',
+    password: '123456', 
     firstName: 'Poni', // 'testFirstName',
     lastName: 'Rama', // 'testLastName'
     loginCookie: null
